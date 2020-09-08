@@ -13,6 +13,7 @@ function draw() {
 // Game Class
 class Game {
     constructor() {
+        // Play sound
         this.menu = true;
         this.paused = false;
         this.stopped = false;
@@ -55,5 +56,13 @@ class Game {
                 // show the menu otherwise
             }
         }
+    }
+
+    initLevel() {
+        // clear the blocks
+        // generate new blocks
+        let message = 'LEVEL ' + this.level + '\nGET READY'
+        // display message using this.displayMessage()
+        // Add sounds
     }
 }
