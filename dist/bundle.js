@@ -93,12 +93,15 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
+// import '../stylesheets/main.css';
+
 // Canvas Setup
 function setup() {
-    createCanvas(1000, 800);
+    createCanvas(800, 700);
 }
 
 function draw() {
+    background('blue');
     ellipse(100, 100, 100, 100);
 }
 
