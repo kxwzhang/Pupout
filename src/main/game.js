@@ -79,7 +79,18 @@ class Game {
         this.balls.forEach(ball => {
             if (ball.magnet) ball.demagnetize;
             ball.launch();
-        })
+        });
+    }
+
+    // Check if all blocks have been cleared
+    checkEmptyBlocks() {
+        let isEmpty = true;
+        this.blocks.forEach(block => {
+            if (block.type !== 1) {
+                isEmpty = false;
+            }
+        });
+        return isEmpty;
     }
 
     // Updates the score
