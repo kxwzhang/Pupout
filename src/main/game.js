@@ -140,7 +140,19 @@ class Game {
         if (this.level > 10) {
             this.level = 1;
         }
-        let message = 'Level ' + this.level;
-        this.initLevel(this.level)
+        this.initLevel(LEVELS['level' + this.level]);
+    }
+
+    startGame() {
+        this.paddle = new Paddle();
+        this.numFrames = 0;
+        this.initLevel(LEVELS['level' + this.level])
+        this.menu = false;
+    }
+
+    switchLevel() {
+        this.level += 1;
+        // Reset to level 1 if level goes beyond 10
+        if (this.level > 10) this.level = 1;
     }
 }
