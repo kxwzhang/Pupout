@@ -1,5 +1,3 @@
-// import * as LEVELS from 
-
 // Canvas Setup
 function setup() {
     createCanvas(800, 700);
