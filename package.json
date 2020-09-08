@@ -1,0 +1,25 @@
+{
+  "name": "Barkanoid",
+  "version": "1.0.0",
+  "description": "",
+  "main": "game.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack --mode=development --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kxwzhang/Barkanoid.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kxwzhang/Barkanoid/issues"
+  },
+  "homepage": "https://github.com/kxwzhang/Barkanoid#readme",
+  "dependencies": {
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  }
+}
