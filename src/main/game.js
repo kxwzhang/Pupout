@@ -1,3 +1,5 @@
+// import * as LEVELS from 
+
 // Canvas Setup
 function setup() {
     createCanvas(800, 700);
@@ -18,7 +20,7 @@ class Game {
         this.paused = false;
         this.stopped = false;
         // this.paddle = new Paddle(); // add new Paddle class
-        // this.balls = [new balls()]; // an array of balls with new ball 
+        // this.balls = [new Ball()]; // an array of balls with new ball 
         this.treats = [];
         this.blocks = [];
         this.beams = [];
@@ -59,7 +61,7 @@ class Game {
     }
 
     // Initializes the level
-    initLevel() {
+    initLevel(lvl) {
         // clear the blocks
         // generate new blocks
         let message = 'LEVEL ' + this.level + '\nGET READY'
@@ -125,5 +127,22 @@ class Game {
                 break;
         }
         this.score += points; // update score with points
+    }
+
+    // Invoking this will generate the next level
+    nextLevel() {
+        this.level += 1; // increment the level by 1
+        this.paddle = new Paddle();
+        this.balls = [new Ball()];
+        this.blocks = [];
+        this.beams = [];
+        this.treats = [];
+        this.numFrames = 0;
+        // Check to make sure our level is below 10, otherwise reset to level 1
+        if (this.level > 10) {
+            this.level = 1;
+        }
+        let message = 'Level ' + this.level;
+        this.initLevel(this.level)
     }
 }
