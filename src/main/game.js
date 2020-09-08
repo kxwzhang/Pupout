@@ -1,4 +1,5 @@
-// import '../stylesheets/main.css';
+// Game Variables
+let score;
 
 // Canvas Setup
 function setup() {
@@ -6,6 +7,6 @@ function setup() {
 }
 
 function draw() {
-    background('blue');
+    background('burlywood');
     ellipse(100, 100, 100, 100);
 }
