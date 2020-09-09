@@ -110,18 +110,30 @@ class Game {
                 paddle.show(); // render paddle
                 // render each of the other elements
                 balls.forEach(ball => ball.show());
+                // blocks.forEach(block => block.show());
+                treats.forEach(treat => treat.show());
+                beams.forEach(beam => beam.show());
             } else if (options) {
                 // show the options otherwise
+                this.displayMenu();
             }
         }
     }
 
     // Initializes the level
     initLevel(lvl) {
-        // clear the blocks
+        this.clearBlocks(); // clear the blocks
         // generate new blocks
+        for (let y = 0; y < ROWS - 8; y++) {
+          for (let x = 0; x < COLS; x++) {
+            if (lvl[y][x] !== 0) {
+              blocks.push(new Brick(x, y, lvl[y][x]));
+            }
+          }
+        }
         let message = 'LEVEL ' + level + '\nGET READY'
-        // display message using this.displayMessage()
+        // display message
+        this.displayMessage(message, 150);
         // Add sounds
     }
 
