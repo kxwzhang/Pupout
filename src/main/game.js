@@ -1,5 +1,5 @@
 // Game constants
-const CONTROLS = { W: 87, A: 65, D: 68, Q: 81, R: 82, SPACE: 32 };
+const CONTROLS = { W: 87, A: 65, D: 68, Q: 81, L: 76, SPACE: 32 };
 const GAME_WIDTH = 656;
 const GAME_HEIGHT = 554; // 534
 const ROWS = 30;
@@ -276,8 +276,7 @@ class Game {
         if (this.paused) {
             stroke(188, 25, 0);
             fill(188, 25, 0);
-            textSize(25);
-            textFont(F_Retro);
+            textSize(28);
             textAlign(LEFT);
             text(
               "PAUSED",
@@ -287,5 +286,38 @@ class Game {
               BOARD.height / 2
             );
         }
+    }
+
+    displayMenu() {
+        // DISPLAY MENU OPTIONS HERE
+    }
+
+    displayMessage(message, time, status) {
+        if (status) {
+            this.blocks.forEach(block => {
+                block.show();
+            });
+            this.paddle.show();
+            this.balls[0].show();
+        }
+        this.stopped = true;
+        this.numFrames = -time;
+
+        stroke(255);
+        fill(255);
+        textSize(25);
+        textAlign(CENTER);
+        text(
+          message,
+          SPACING.left,
+          SPACING.top + WALL.top + 2 * BLOCK.height + 100,
+          BOARD.width,
+          BOARD.height / 2
+        );
+    }
+
+    handleGameOver() {
+        new Game();
+        this.displayMessage('WOOF, GAME OVER!', 150);
     }
 }
