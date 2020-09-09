@@ -18,9 +18,7 @@ class Paddle {
           SPACING.left + WALL.left,
           GAME_WIDTH - SPACING.right - WALL.right - this.width
         );
-        if () {
-            if ()
-        }
+      
     }
 
     show() {
