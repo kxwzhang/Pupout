@@ -79,7 +79,7 @@ class Ball {
   }
 
   hitPaddle(action) {
-    switch (action.d) {
+    switch (action.dir) {
       case 'TOP':
         this.y = action.y;
         this.dy *= 1;
@@ -104,13 +104,62 @@ class Ball {
   }
 
   hitBlock(action) {
-    switch (key) {
-        case value:
-            
+    switch (action.dir) {
+        case 'TOP':
+        case 'BOTTOM':
+            this.y = action.y;
+            this.dy = -this.dy;
             break;
-    
+        case 'RIGHT':
+        case 'LEFT':
+            this.x  = action.x;
+            this.dx = -this.dx;
+            break;
         default:
             break;
     }
+    // after each hit, increment the speed
+    if (this.dx > 0) this.dx += 0.1 * (1 - this.dx / 10);
+    if (this.dx < 0) this.dx -= 0.1 * (1 - this.dx / 10);
+    if (this.dy > 0) this.dy += 0.1 * (1 - this.dy / 10);
+    if (this.dy < 0) this.dy -= 0.1 * (1 - this.dy / 10);
+  }
+
+  launch() {
+      this.moving = true;
+      if (this.magnet) {
+        if (this.offset > paddle.w / 2) {
+            this.dx = Math.abs(this.dx);
+        } else {
+            this.dx = Math.abs(this.dx) * -1;
+        }
+      }
+  }
+
+  destroyed() {
+      return (this.y > GAME_HEIGHT + BALL_RADIUS) ? true : false;
+  }
+  
+  magnetize() {
+      this.magnet = true;
+  }
+
+  demagnetize() {
+      this.magnet = false;
+      this.launch();
+  }
+
+  double() {
+      balls.push(new Ball(this.x, this.y, random(-3, 3), Math.abs(this.dy) * -1 + random(-0.5, 0.5)));
+      balls.forEach(ball => {
+          ball.moving = true;
+          if (this.magnet) ball.magnetize();
+      });
+  }
+
+  dropParty() {
+      for (let i = 0; i < 5; i++) {
+          this.double();
+      }
   }
 }

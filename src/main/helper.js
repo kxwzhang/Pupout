@@ -99,3 +99,61 @@ function ballInterceptPaddle(ball) {
     }
     return action;
 }
+
+// function for checking ball intercepting a block
+function ballInterceptBlock(ball, b) {
+    let action;
+    if (ball.dx < 0) {
+        action = intercept(
+        ball.x,
+        ball.y,
+        ball.x + ball.dx,
+        ball.y + ball.dy,
+        b.x + BLOCK.width + BALL_RADIUS,
+        b.y - BALL_RADIUS,
+        b.x + BLOCK.width + BALL_RADIUS,
+        b.y + BLOCK.height + BALL_RADIUS,
+        'RIGHT'
+        );
+    }
+    if (!action && ball.dx > 0) {
+        action = intercept(
+        ball.x,
+        ball.y,
+        ball.x + ball.dx,
+        ball.y + ball.dy,
+        b.x - BALL_RADIUS,
+        b.y - BALL_RADIUS,
+        b.x - BALL_RADIUS,
+        b.y + BLOCK.height + BALL_RADIUS,
+        'LEFT'
+        );
+    }
+    if (!action && ball.dy < 0) {
+        action = intercept(
+        ball.x,
+        ball.y,
+        ball.x + ball.dx,
+        ball.y + ball.dy,
+        b.x - BALL_RADIUS,
+        b.y + BLOCK.height + BALL_RADIUS,
+        b.x + BLOCK.width + BALL_RADIUS,
+        b.y + BLOCK.height + BALL_RADIUS,
+        'BOTTOM'
+        );
+    }
+    if (!action && ball.dy > 0) {
+        action = intercept(
+        ball.x,
+        ball.y,
+        ball.x + ball.dx,
+        ball.y + ball.dy,
+        b.x - BALL_RADIUS,
+        b.y - BALL_RADIUS,
+        b.x + BLOCK.width + BALL_RADIUS,
+        b.y - BALL_RADIUS,
+        'TOP'
+        );
+    }
+    return action;
+}
