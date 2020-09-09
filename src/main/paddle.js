@@ -18,7 +18,13 @@ class Paddle {
           SPACING.left + WALL.left,
           GAME_WIDTH - SPACING.right - WALL.right - this.width
         );
-      
+        // If it's on cooldown then check if the frame is bigger than
+        // the current frame plus the cooldown and reset the cooldown
+        if (this.onCD) {
+            if (this.numFrames > (this.frame + this.cooldown)) {
+                this.onCD = false;
+            }
+        }
     }
 
     show() {
