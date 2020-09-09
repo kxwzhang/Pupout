@@ -29,9 +29,9 @@ class Ball {
 
       // Check paddle collision
       if (this.dy > 0) {
-        let pt = ballInterceptPaddle(this);
-        if (pt) {
-          this.hitPaddle(pt);
+        let action = ballInterceptPaddle(this);
+        if (action) {
+          this.hitPaddle(action);
           if (this.magnet) {
             // Play sound
             this.moving = false;
@@ -70,11 +70,32 @@ class Ball {
   }
 
   show() {
-      image(
-          spriteTennisball, 
-          this.x - BALL_RADIUS, 
-          this.y - BALL_RADIUS,
-          2 * BALL_RADIUS,
-          2 * BALL_RADIUS)
+    image(
+        spriteTennisball, 
+        this.x - BALL_RADIUS, 
+        this.y - BALL_RADIUS,
+        2 * BALL_RADIUS,
+        2 * BALL_RADIUS)
+  }
+
+  hitPaddle(action) {
+    switch (action.d) {
+      case "TOP":
+        this.y = action.y;
+        this.dy *= 1;
+        break;
+      case "TOP_LEFT":
+        this.x = action.x;
+        this.dx *= -1;
+        this.y = action.y;
+        this.dy *= -1;
+        break;
+      case "LEFT":
+        this.x = action.x;
+        this.dx *= -1;
+        break;
+      default:
+        break;
+    }
   }
 }
