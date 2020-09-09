@@ -18,6 +18,5 @@ class Ball {
 
   update() {
     // CHECK FOR COLLISIONS
-    // ?
   }
 }
