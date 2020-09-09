@@ -21,6 +21,11 @@ const BLOCK = {
 };
 const BALL_RADIUS = 8;
 
+// Game status
+let options;
+let paused;
+let stopped;
+
 // Game values
 // let options;
 // let paused;
@@ -66,9 +71,9 @@ class Game {
     // }
     constructor() {
         // Play sound
-        this.options = true;
-        this.paused = false;
-        this.stopped = false;
+        // this.options = true;
+        // this.paused = false;
+        // this.stopped = false;
         // this.paddle = new Paddle(); // add new Paddle class
         // this.balls = [new Ball()]; // an array of balls with new ball 
         this.treats = [];
@@ -81,7 +86,7 @@ class Game {
     }
 
     update() {
-        if (!this.options && !this.paused && !this.stopped) {
+        if (!options && !paused && !stopped) {
             // 1. should first update the paddle
 
             // 2. iterate through the balls and update them
@@ -97,14 +102,14 @@ class Game {
     }
 
     show() {
-        if (!this.stopped) {
+        if (!stopped) {
             background('lightblue');
             this.drawBoard(); // Draw the board
             this.displayInfo(); // Display game info
-            if (!this.options) {
+            if (!options) {
                 // render paddle
                 // render each of the other elements
-            } else if (this.options) {
+            } else if (options) {
                 // show the options otherwise
             }
         }
@@ -199,7 +204,7 @@ class Game {
         this.paddle = new Paddle();
         this.numFrames = 0;
         this.initLevel(LEVELS['level' + this.level])
-        this.options = false;
+        options = false;
     }
 
     switchLevel() {
@@ -273,7 +278,7 @@ class Game {
     }
 
     displayPaused() {
-        if (this.paused) {
+        if (paused) {
             stroke(188, 25, 0);
             fill(188, 25, 0);
             textSize(28);
@@ -300,7 +305,7 @@ class Game {
             this.paddle.show();
             this.balls[0].show();
         }
-        this.stopped = true;
+        stopped = true;
         this.numFrames = -time;
 
         stroke(255);
