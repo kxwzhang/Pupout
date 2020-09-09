@@ -18,3 +18,84 @@ function intecept(ax, ay, bx, by, cx, cy, dx, dy, label) {
     }
     return null; // if zero-division were to happen
 }
+
+// function for checking interception of ball with paddle
+function ballInterceptPaddle(ball) {
+    let action;
+    action = intercept(
+        ball.x, 
+        ball.y, 
+        ball.y + ball.dy,
+        paddle.x, 
+        paddle.y - BALL_RADIUS,
+        paddle.x + paddle.width,
+        paddle.y - BALL_RADIUS,
+        'TOP'
+    );
+    if (!action && ball.dx < 0) {
+        action = intercept(
+          ball.x,
+          ball.y,
+          ball.x + ball.dx,
+          ball.y + ball.dy,
+          paddle.x + paddle.width,
+          paddle.y - BALL_RADIUS,
+          paddle.x + paddle.with + BALL_RADIUS,
+          paddle.y,
+          'TOP_RIGHT'
+        );
+    }
+    if (!action && ball.dx < 0) {
+        action = intercept(
+          ball.x,
+          ball.y,
+          ball.x + ball.dx,
+          ball.y + ball.dy,
+          paddle.x + paddle.width + BALL_RADIUS,
+          paddle.y,
+          paddle.x + paddle.width + BALL_RADIUS,
+          paddle.y + PADDLE.height,
+          'RIGHT'
+        );
+    }
+    if (!action && ball.dx > 0) {
+        action = intercept(
+          ball.x,
+          ball.y,
+          ball.x + ball.dx,
+          ball.y + ball.dy,
+          paddle.x,
+          paddle.y - BALL_RADIUS,
+          paddle.x - BALL_RADIUS,
+          paddle.y,
+          'TOP_LEFT'
+        );
+    }
+    if (!action && ball.dx > 0) {
+        action = intercept(
+          ball.x,
+          ball.y,
+          ball.x + ball.dx,
+          ball.y + ball.dy,
+          paddle.x - BALL_RADIUS,
+          paddle.y,
+          paddle.x - BALL_RADIUS,
+          paddle.y + PADDLE.height,
+          'LEFT'
+        );
+    }
+    if (!action) {
+        action = intercept(
+          ball.x,
+          ball.y,
+          ball.x + ball.dx,
+          ball.y + ball.dy,
+          paddle.x,
+          paddle.y + PADDLE.height / 2 - BALL_RADIUS,
+          paddle.x + paddle.width,
+          paddle.y + PADDLE.height / 2 - BALL_RADIUS,
+          "TOP"
+        );
+    }
+    return action;
+}

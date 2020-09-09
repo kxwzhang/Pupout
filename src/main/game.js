@@ -237,14 +237,14 @@ class Game {
         textAlign(LEFT);
         // get a cool font
         text(
-          "SCORE",
+          'SCORE',
           GAME_WIDTH - SPACING.right + SPACING.left,
           SPACING.top + WALL.top + 2 * BLOCK.height, // 100
           SPACING.right,
           BOARD.height / 2
         );
         text(
-          "BALLS",
+          'BALLS',
           GAME_WIDTH - SPACING.right + SPACING.left,
           SPACING.top + WALL.top + 2 * BLOCK.height + 175,
           SPACING.right,
@@ -258,7 +258,7 @@ class Game {
           20
         );
         text(
-          "LEVEL",
+          'LEVEL',
           GAME_WIDTH - SPACING.right + SPACING.left,
           SPACING.top + WALL.top + 2 * BLOCK.height + 300,
           SPACING.right,
@@ -297,7 +297,7 @@ class Game {
             textSize(28);
             textAlign(LEFT);
             text(
-              "PAUSED",
+              'PAUSED',
               GAME_WIDTH - SPACING.right + SPACING.left,
               SPACING.top + WALL.top + 2 * BLOCK.height + 250,
               SPACING.right,

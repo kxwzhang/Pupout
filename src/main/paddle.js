@@ -17,7 +17,7 @@ class Paddle {
         }
         if (keyIsDown(CONTROLS.D)) {
             this.x += 5; // move right 5
-            console.log("hitting D", this.x);
+            console.log('hitting D', this.x);
         }
         this.x = constrain(
           this.x,

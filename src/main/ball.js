@@ -80,22 +80,37 @@ class Ball {
 
   hitPaddle(action) {
     switch (action.d) {
-      case "TOP":
+      case 'TOP':
         this.y = action.y;
         this.dy *= 1;
         break;
-      case "TOP_LEFT":
+      case 'TOP_RIGHT':   
+      case 'TOP_LEFT':
         this.x = action.x;
         this.dx *= -1;
         this.y = action.y;
         this.dy *= -1;
         break;
-      case "LEFT":
+      case 'RIGHT':
+      case 'LEFT':
         this.x = action.x;
         this.dx *= -1;
         break;
       default:
         break;
+    }
+    if (keyIsDown(CONTROLS.A)) this.dx = this.dx * (this.dx > 0 ? 0.6 : 1.05);
+    if (keyIsDown(CONTROLS.D)) this.dx = this.dx * (this.dx < 0 ? 0.6 : 1.05);
+  }
+
+  hitBlock(action) {
+    switch (key) {
+        case value:
+            
+            break;
+    
+        default:
+            break;
     }
   }
 }
