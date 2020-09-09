@@ -56,8 +56,8 @@ class Game {
         options = true;
         paused = false;
         stopped = false;
-        paddle = new Paddle(); // add new Paddle class
-        balls = [ new Ball() ]; // an array of balls with new ball
+        paddle = new Paddle(); 
+        balls = [new Ball()]; 
         blocks = [];
         treats = [];
         beams = [];
@@ -72,8 +72,8 @@ class Game {
     //     this.options = true;
     //     this.paused = false;
     //     this.stopped = false;
-    //     this.paddle = new Paddle(); // add new Paddle class
-    //     this.balls = [new Ball()]; // an array of balls with new ball 
+    //     this.paddle = new Paddle(); 
+    //     this.balls = [new Ball()]; 
     //     this.treats = [];
     //     this.blocks = [];
     //     this.beams = [];
