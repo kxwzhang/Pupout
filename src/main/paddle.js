@@ -18,6 +18,9 @@ class Paddle {
           SPACING.left + WALL.left,
           GAME_WIDTH - SPACING.right - WALL.right - this.width
         );
+        if () {
+            if ()
+        }
     }
 
     show() {
@@ -26,6 +29,11 @@ class Paddle {
 
     supersize() {
         // MAKE PADDLE BIGGER
+        // IF WE ARE SUPERSIZED:
+            // RENDER SUPERSIZED
+        // IF WE ARE ON A POWERUP 
+            // RENDER POWERUP PADDLES
+        // ELSE REVERT SIZE
     }
 
     shrink() {
