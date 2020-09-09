@@ -1,7 +1,7 @@
 class Ball {
   constructor(x, y, dx, dy) {
-    this.x = (BOARD.width/2) + SPACING.left;
-    this.y = GAME_HEIGHT - (3*BLOCK.height) - BALL_RADIUS;
+    this.x = (BOARD.width / 2) + SPACING.left + 10;
+    this.y = GAME_HEIGHT - (4 * BLOCK.height) - BALL_RADIUS;
     this.dx = 3;
     this.dy = 3;
     // Check if the ball exists on X 
@@ -18,5 +18,14 @@ class Ball {
 
   update() {
     // CHECK FOR COLLISIONS
+  }
+
+  show() {
+      image(
+          spriteTennisball, 
+          this.x - BALL_RADIUS, 
+          this.y - BALL_RADIUS,
+          2 * BALL_RADIUS,
+          2 * BALL_RADIUS)
   }
 }

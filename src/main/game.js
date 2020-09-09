@@ -14,7 +14,7 @@ const SPACING = {
     top: 14, right: 168, left: 42
 };
 const PADDLE = {
-    width: 70, height: 14
+    width: 60, height: 40
 };
 const BLOCK = {
     width: 28, height: 14
@@ -74,8 +74,8 @@ class Game {
         // this.options = true;
         // this.paused = false;
         // this.stopped = false;
-        // this.paddle = new Paddle(); // add new Paddle class
-        // this.balls = [new Ball()]; // an array of balls with new ball 
+        this.paddle = new Paddle(); // add new Paddle class
+        this.balls = [new Ball()]; // an array of balls with new ball 
         this.treats = [];
         this.blocks = [];
         this.beams = [];
@@ -107,8 +107,9 @@ class Game {
             this.drawBoard(); // Draw the board
             this.displayInfo(); // Display game info
             if (!options) {
-                // render paddle
+                this.paddle.show(); // render paddle
                 // render each of the other elements
+                this.balls.forEach(ball => ball.show());
             } else if (options) {
                 // show the options otherwise
             }
@@ -238,7 +239,7 @@ class Game {
           BOARD.height / 2
         );
         image(
-          spriteHeart,
+          spriteTennisball,
           GAME_WIDTH - SPACING.right + 92 + SPACING.left,
           SPACING.top + WALL.top + 2 * BLOCK.height + 178,
           20,
