@@ -1,3 +1,25 @@
+const CONTROLS = { W: 87, A: 65, D: 68, Q: 81, R: 82, SPACE: 32 };
+const GAME_WIDTH = 800;
+const GAME_HEIGHT = 700;
+const ROWS = 30;
+const COLS = 11;
+const WALL = {
+    top: 14, right: 14, left: 14
+};
+const BOARD = {
+    width: 336, height: 420
+};
+const SPACING = {
+    top: 14, right: 168, left: 42
+};
+const PADDLE = {
+    width: 56, height: 14
+};
+const BLOCK = {
+    width: 28, height: 14
+};
+const BALL_RADIUS = 5;
+
 // Canvas Setup
 function setup() {
     createCanvas(800, 700);
@@ -14,7 +36,7 @@ function draw() {
 class Game {
     constructor() {
         // Play sound
-        this.menu = true;
+        this.options = true;
         this.paused = false;
         this.stopped = false;
         // this.paddle = new Paddle(); // add new Paddle class
@@ -29,7 +51,7 @@ class Game {
     }
 
     update() {
-        if (!this.menu && !this.paused && !this.stopped) {
+        if (!this.options && !this.paused && !this.stopped) {
             // 1. should first update the paddle
 
             // 2. iterate through the balls and update them
@@ -38,7 +60,7 @@ class Game {
 
             // 4. iterate through the beams and update them
 
-            // Check if not on the menu, then check if all the blocks have been cleared
+            // Check if not on the options, then check if all the blocks have been cleared
             // If all blocks cleared then initialize next level
             // Increment the numFrames
         }
@@ -49,11 +71,11 @@ class Game {
             background('lightblue');
             // Draw the board
             // Display game info
-            if (!this.menu) {
+            if (!this.options) {
                 // render paddle
                 // render each of the other elements
-            } else if (this.menu) {
-                // show the menu otherwise
+            } else if (this.options) {
+                // show the options otherwise
             }
         }
     }
@@ -147,12 +169,16 @@ class Game {
         this.paddle = new Paddle();
         this.numFrames = 0;
         this.initLevel(LEVELS['level' + this.level])
-        this.menu = false;
+        this.options = false;
     }
 
     switchLevel() {
         this.level += 1;
         // Reset to level 1 if level goes beyond 10
         if (this.level > 10) this.level = 1;
+    }
+
+    drawBoard() {
+
     }
 }
