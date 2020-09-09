@@ -27,24 +27,21 @@ let paused;
 let stopped;
 
 // Game values
-// let options;
-// let paused;
-// let stopped;
-// // let paddle;
-// // let balls;
-// let blocks;
-// let treats;
-// let beams;
-// let score;
-// let lives;
-// let level;
-// let numFrames;
+let paddle;
+let balls;
+let blocks;
+let treats;
+let beams;
+let score;
+let lives;
+let level;
+let numFrames;
 
 // Canvas Setup
 function setup() {
     createCanvas(GAME_WIDTH, GAME_HEIGHT);
     game = new Game();
-    // game.initialize();
+    game.initialize();
 }
 
 function draw() {
@@ -54,41 +51,42 @@ function draw() {
 
 // Game Class
 class Game {
-    // initialize() {
-    //     // PlaySound
-    //     options = true;
-    //     paused = false;
-    //     stopped = false;
-    //     // paddle = new Paddle();
-    //     // balls = [ new Ball() ];
-    //     blocks = [];
-    //     treats = [];
-    //     beams = [];
-    //     score = 0;
-    //     level = 1;
-    //     lives = 3;
-    //     numFrames = 0;
-    // }
-    constructor() {
-        // Play sound
-        // this.options = true;
-        // this.paused = false;
-        // this.stopped = false;
-        this.paddle = new Paddle(); // add new Paddle class
-        this.balls = [new Ball()]; // an array of balls with new ball 
-        this.treats = [];
-        this.blocks = [];
-        this.beams = [];
-        this.level = 1;
-        this.score = 0;
-        this.lives = 3;
-        this.numFrames = 0;
+    initialize() {
+        // PlaySound
+        options = true;
+        paused = false;
+        stopped = false;
+        paddle = new Paddle(); // add new Paddle class
+        balls = [ new Ball() ]; // an array of balls with new ball
+        blocks = [];
+        treats = [];
+        beams = [];
+        score = 0;
+        level = 1;
+        lives = 3;
+        numFrames = 0;
+        console.log('options in initialize', options);
     }
+    // constructor() {
+    //     // Play sound
+    //     this.options = true;
+    //     this.paused = false;
+    //     this.stopped = false;
+    //     this.paddle = new Paddle(); // add new Paddle class
+    //     this.balls = [new Ball()]; // an array of balls with new ball 
+    //     this.treats = [];
+    //     this.blocks = [];
+    //     this.beams = [];
+    //     this.level = 1;
+    //     this.score = 0;
+    //     this.lives = 3;
+    //     this.numFrames = 0;
+    // }
 
     update() {
         if (!options && !paused && !stopped) {
             // 1. should first update the paddle
-
+            paddle.update();
             // 2. iterate through the balls and update them
 
             // 3. iterate through the treats and update them
@@ -104,12 +102,14 @@ class Game {
     show() {
         if (!stopped) {
             background('lightblue');
+            // console.log('stopped ', stopped);
             this.drawBoard(); // Draw the board
             this.displayInfo(); // Display game info
             if (!options) {
-                this.paddle.show(); // render paddle
+                console.log('options ', options);
+                paddle.show(); // render paddle
                 // render each of the other elements
-                this.balls.forEach(ball => ball.show());
+                balls.forEach(ball => ball.show());
             } else if (options) {
                 // show the options otherwise
             }
@@ -120,21 +120,21 @@ class Game {
     initLevel(lvl) {
         // clear the blocks
         // generate new blocks
-        let message = 'LEVEL ' + this.level + '\nGET READY'
+        let message = 'LEVEL ' + level + '\nGET READY'
         // display message using this.displayMessage()
         // Add sounds
     }
 
     // Clears the blocks
     clearBlocks() {
-        this.blocks = [];
+        blocks = [];
     }
 
     // Clears the treats
     clearTreats() {
         paddle.shrink(); // shrink the paddle
         paddle.stopBeam(); // stop the beam
-        this.balls.forEach(ball => {
+        balls.forEach(ball => {
             if (ball.magnet) ball.demagnetize;
             ball.launch();
         });
@@ -143,7 +143,7 @@ class Game {
     // Check if all blocks have been cleared
     checkEmptyBlocks() {
         let isEmpty = true;
-        this.blocks.forEach(block => {
+        blocks.forEach(block => {
             if (block.type !== 1) {
                 isEmpty = false;
             }
@@ -156,19 +156,19 @@ class Game {
         let points = 0;
         switch (block.type) {
             case 2:
-                points = 50 * this.level;
+                points = 50 * level;
                 break;
             case 3:
-                points = 60 * this.level;
+                points = 60 * level;
                 break;
             case 4:
-                points = 70 * this.level;
+                points = 70 * level;
                 break;
             case 5:
-                points = 80 * this.level;
+                points = 80 * level;
                 break;
             case 6:
-                points = 90 * this.level;
+                points = 90 * level;
                 break;
             case 7:
                 points = 190;
@@ -182,36 +182,36 @@ class Game {
             default:
                 break;
         }
-        this.score += points; // update score with points
+        score += points; // update score with points
     }
 
     // Invoking this will generate the next level
     nextLevel() {
-        this.level += 1; // increment the level by 1
-        this.paddle = new Paddle();
-        this.balls = [new Ball()];
-        this.blocks = [];
-        this.beams = [];
-        this.treats = [];
-        this.numFrames = 0;
+        level += 1; // increment the level by 1
+        paddle = new Paddle();
+        balls = [new Ball()];
+        blocks = [];
+        beams = [];
+        treats = [];
+        numFrames = 0;
         // Check to make sure our level is below 10, otherwise reset to level 1
-        if (this.level > 10) {
-            this.level = 1;
+        if (level > 10) {
+            level = 1;
         }
-        this.initLevel(LEVELS['level' + this.level]);
+        this.initLevel(LEVELS['level' + level]);
     }
 
     startGame() {
-        this.paddle = new Paddle();
-        this.numFrames = 0;
-        this.initLevel(LEVELS['level' + this.level])
+        paddle = new Paddle();
+        numFrames = 0;
+        this.initLevel(LEVELS['level' + level])
         options = false;
     }
 
     switchLevel() {
-        this.level += 1;
+        level += 1;
         // Reset to level 1 if level goes beyond 10
-        if (this.level > 10) this.level = 1;
+        if (level > 10) level = 1;
     }
 
     drawBoard() {
@@ -255,21 +255,21 @@ class Game {
         stroke(255);
         fill(255);
         text(
-          this.score,
+          score,
           GAME_WIDTH - SPACING.right + SPACING.left,
           SPACING.top + WALL.top + 2 * BLOCK.height + 30, // 125
           SPACING.right,
           BOARD.height / 2
         );
         text(
-          this.lives,
+          lives,
           GAME_WIDTH - SPACING.right + SPACING.left,
           SPACING.top + WALL.top + 2 * BLOCK.height + 205,
           SPACING.right,
           BOARD.height / 2
         );
         text(
-          this.level,
+          level,
           GAME_WIDTH - SPACING.right + SPACING.left,
           SPACING.top + WALL.top + 2 * BLOCK.height + 330,
           SPACING.right,
@@ -300,14 +300,14 @@ class Game {
 
     displayMessage(message, time, status) {
         if (status) {
-            this.blocks.forEach(block => {
+            blocks.forEach(block => {
                 block.show();
             });
-            this.paddle.show();
-            this.balls[0].show();
+            paddle.show();
+            balls[0].show();
         }
         stopped = true;
-        this.numFrames = -time;
+        numFrames = -time;
 
         stroke(255);
         fill(255);

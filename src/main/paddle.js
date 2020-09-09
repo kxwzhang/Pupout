@@ -11,8 +11,14 @@ class Paddle {
     }
 
     update() {
-        if (keyIsDown(CONTROLS.A)) this.x -= 5; // move left 5
-        if (keyIsDown(CONTROLS.D)) this.x += 5; // move right 5
+        if (keyIsDown(CONTROLS.A)) {
+            this.x -= 5; // move left 5
+            console.log('hitting A', this.x);
+        }
+        if (keyIsDown(CONTROLS.D)) {
+            this.x += 5; // move right 5
+            console.log("hitting D", this.x);
+        }
         this.x = constrain(
           this.x,
           SPACING.left + WALL.left,
@@ -21,7 +27,7 @@ class Paddle {
         // If it's on cooldown then check if the frame is bigger than
         // the current frame plus the cooldown and reset the cooldown
         if (this.onCD) {
-            if (this.numFrames > (this.frame + this.cooldown)) {
+            if (numFrames > (this.frame + this.cooldown)) {
                 this.onCD = false;
             }
         }
