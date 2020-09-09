@@ -1,28 +1,28 @@
 const CONTROLS = { W: 87, A: 65, D: 68, Q: 81, R: 82, SPACE: 32 };
-const GAME_WIDTH = 800;
-const GAME_HEIGHT = 700;
+const GAME_WIDTH = 656;
+const GAME_HEIGHT = 534;
 const ROWS = 30;
-const COLS = 11;
+const COLS = 15;
 const WALL = {
     top: 14, right: 14, left: 14
 };
 const BOARD = {
-    width: 336, height: 420
+    width: 450, height: 520
 };
 const SPACING = {
     top: 14, right: 168, left: 42
 };
 const PADDLE = {
-    width: 56, height: 14
+    width: 70, height: 14
 };
 const BLOCK = {
     width: 28, height: 14
 };
-const BALL_RADIUS = 5;
+const BALL_RADIUS = 8;
 
 // Canvas Setup
 function setup() {
-    createCanvas(800, 700);
+    createCanvas(GAME_WIDTH, GAME_HEIGHT);
 }
 
 function draw() {
