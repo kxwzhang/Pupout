@@ -1,3 +1,3 @@
-const preload = () => {
-    const spriteGameBackground = loadImage('../assets/Ruined_City_Background');
-}
+function preload() {
+    spriteGameBackground = loadImage("src/assets/Ruined_City_Background.png");
+};

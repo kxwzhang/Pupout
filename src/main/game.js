@@ -1,3 +1,4 @@
+// Game constants
 const CONTROLS = { W: 87, A: 65, D: 68, Q: 81, R: 82, SPACE: 32 };
 const GAME_WIDTH = 656;
 const GAME_HEIGHT = 534;
@@ -20,20 +21,49 @@ const BLOCK = {
 };
 const BALL_RADIUS = 8;
 
+// Game values
+// let options;
+// let paused;
+// let stopped;
+// // let paddle;
+// // let balls;
+// let blocks;
+// let treats;
+// let beams;
+// let score;
+// let lives;
+// let level;
+// let numFrames;
+
 // Canvas Setup
 function setup() {
     createCanvas(GAME_WIDTH, GAME_HEIGHT);
+    game = new Game();
+    // game.initialize();
 }
 
 function draw() {
-    background('burlywood');
-    ellipse(100, 100, 100, 100);
-    // text(`Score: ${score}`, width - 100, 50);
-    fill(255);
+    // game.update();
+    game.show();
 }
 
 // Game Class
 class Game {
+    // initialize() {
+    //     // PlaySound
+    //     options = true;
+    //     paused = false;
+    //     stopped = false;
+    //     // paddle = new Paddle();
+    //     // balls = [ new Ball() ];
+    //     blocks = [];
+    //     treats = [];
+    //     beams = [];
+    //     score = 0;
+    //     level = 1;
+    //     lives = 3;
+    //     numFrames = 0;
+    // }
     constructor() {
         // Play sound
         this.options = true;
@@ -69,7 +99,7 @@ class Game {
     show() {
         if (!this.stopped) {
             background('lightblue');
-            // Draw the board
+            this.drawBoard(); // Draw the board
             // Display game info
             if (!this.options) {
                 // render paddle
