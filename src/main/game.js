@@ -98,9 +98,9 @@ class Game {
 
     show() {
         if (!this.stopped) {
-            background('lightblue');
+            // background('lightblue');
             this.drawBoard(); // Draw the board
-            // Display game info
+            this.displayInfo(); // Display game info
             if (!this.options) {
                 // render paddle
                 // render each of the other elements
@@ -210,5 +210,65 @@ class Game {
 
     drawBoard() {
         image(spriteGameBackground, SPACING.left, SPACING.top, BOARD.width, BOARD.height);
+    }
+
+    displayInfo() {
+        stroke(188, 25, 0);
+        fill(188, 25, 0);
+        textSize(28);
+        textAlign(LEFT);
+        // get a cool font
+        text(
+          "SCORE",
+          GAME_WIDTH - SPACING.right + SPACING.left,
+          SPACING.top + WALL.top + 2 * BLOCK.height, // 100
+          SPACING.right,
+          BOARD.height / 2
+        );
+        text(
+          "LIVES",
+          GAME_WIDTH - SPACING.right + SPACING.left,
+          SPACING.top + WALL.top + 2 * BLOCK.height + 175,
+          SPACING.right,
+          BOARD.height / 2
+        );
+        image(
+          spriteHeart,
+          GAME_WIDTH - SPACING.right + 80 + SPACING.left,
+          SPACING.top + WALL.top + 2 * BLOCK.height + 170,
+          33,
+          33
+        );
+        text(
+          "LEVEL",
+          GAME_WIDTH - SPACING.right + SPACING.left,
+          SPACING.top + WALL.top + 2 * BLOCK.height + 300,
+          SPACING.right,
+          BOARD.height / 2
+        );
+        stroke(255);
+        fill(255);
+        text(
+          this.score,
+          GAME_WIDTH - SPACING.right + SPACING.left,
+          SPACING.top + WALL.top + 2 * BLOCK.height + 25, // 125
+          SPACING.right,
+          BOARD.height / 2
+        );
+        text(
+          this.lives,
+          GAME_WIDTH - SPACING.right + SPACING.left,
+          SPACING.top + WALL.top + 2 * BLOCK.height + 200,
+          SPACING.right,
+          BOARD.height / 2
+        );
+        text(
+          this.level,
+          GAME_WIDTH - SPACING.right + SPACING.left,
+          SPACING.top + WALL.top + 2 * BLOCK.height + 325,
+          SPACING.right,
+          BOARD.height / 2
+        );
+        // this.showPaused(); // Render pause if player hits enter
     }
 }
