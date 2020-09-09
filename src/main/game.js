@@ -269,6 +269,23 @@ class Game {
           SPACING.right,
           BOARD.height / 2
         );
-        // this.showPaused(); // Render pause if player hits enter
+        this.displayPaused(); // Render pause if player hits enter
+    }
+
+    displayPaused() {
+        if (this.paused) {
+            stroke(188, 25, 0);
+            fill(188, 25, 0);
+            textSize(25);
+            textFont(F_Retro);
+            textAlign(LEFT);
+            text(
+              "PAUSED",
+              GAME_WIDTH - SPACING.right + SPACING.left,
+              SPACING.top + WALL.top + 2 * BLOCK.height + 250,
+              SPACING.right,
+              BOARD.height / 2
+            );
+        }
     }
 }
