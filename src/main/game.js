@@ -1,7 +1,7 @@
 // Game constants
 const CONTROLS = { W: 87, A: 65, D: 68, Q: 81, R: 82, SPACE: 32 };
 const GAME_WIDTH = 656;
-const GAME_HEIGHT = 534;
+const GAME_HEIGHT = 554; // 534
 const ROWS = 30;
 const COLS = 15;
 const WALL = {
@@ -98,7 +98,7 @@ class Game {
 
     show() {
         if (!this.stopped) {
-            // background('lightblue');
+            background('lightblue');
             this.drawBoard(); // Draw the board
             this.displayInfo(); // Display game info
             if (!this.options) {
@@ -213,8 +213,8 @@ class Game {
     }
 
     displayInfo() {
-        stroke(188, 25, 0);
-        fill(188, 25, 0);
+        stroke(255, 55, 0);
+        fill(255, 255, 0);
         textSize(28);
         textAlign(LEFT);
         // get a cool font
@@ -226,7 +226,7 @@ class Game {
           BOARD.height / 2
         );
         text(
-          "LIVES",
+          "BALLS",
           GAME_WIDTH - SPACING.right + SPACING.left,
           SPACING.top + WALL.top + 2 * BLOCK.height + 175,
           SPACING.right,
@@ -234,10 +234,10 @@ class Game {
         );
         image(
           spriteHeart,
-          GAME_WIDTH - SPACING.right + 80 + SPACING.left,
-          SPACING.top + WALL.top + 2 * BLOCK.height + 170,
-          33,
-          33
+          GAME_WIDTH - SPACING.right + 92 + SPACING.left,
+          SPACING.top + WALL.top + 2 * BLOCK.height + 178,
+          20,
+          20
         );
         text(
           "LEVEL",
@@ -251,21 +251,21 @@ class Game {
         text(
           this.score,
           GAME_WIDTH - SPACING.right + SPACING.left,
-          SPACING.top + WALL.top + 2 * BLOCK.height + 25, // 125
+          SPACING.top + WALL.top + 2 * BLOCK.height + 30, // 125
           SPACING.right,
           BOARD.height / 2
         );
         text(
           this.lives,
           GAME_WIDTH - SPACING.right + SPACING.left,
-          SPACING.top + WALL.top + 2 * BLOCK.height + 200,
+          SPACING.top + WALL.top + 2 * BLOCK.height + 205,
           SPACING.right,
           BOARD.height / 2
         );
         text(
           this.level,
           GAME_WIDTH - SPACING.right + SPACING.left,
-          SPACING.top + WALL.top + 2 * BLOCK.height + 325,
+          SPACING.top + WALL.top + 2 * BLOCK.height + 330,
           SPACING.right,
           BOARD.height / 2
         );

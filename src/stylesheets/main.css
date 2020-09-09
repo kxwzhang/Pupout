@@ -1,5 +1,6 @@
 main {
     /* background-color: rgb(54, 48, 48); */
+    display: flex;
     padding: 30px;
     /* margin: auto; */
     /* width: 100%; */
@@ -8,6 +9,6 @@ main {
 
 #defaultCanvas0 {
     margin: auto;
-    border: 3px solid black;
+    border: 3px solid burlywood;
     border-radius: 3px;
 }
