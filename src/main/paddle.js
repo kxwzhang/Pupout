@@ -11,7 +11,6 @@ class Paddle {
     }
 
     update() {
-        // HANDLE UPDATING STATUS
         if (keyIsDown(CONTROLS.A)) this.x -= 5; // move left 5
         if (keyIsDown(CONTROLS.D)) this.x += 5; // move right 5
         this.x = constrain(
