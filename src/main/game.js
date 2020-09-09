@@ -179,6 +179,6 @@ class Game {
     }
 
     drawBoard() {
-
+        image(spriteGameBackground, SPACING.left, SPACING.top, BOARD.width, BOARD.height);
     }
 }
