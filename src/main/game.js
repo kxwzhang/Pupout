@@ -153,25 +153,25 @@ class Game {
                 points = 50 * this.level;
                 break;
             case 3:
-                points = 60;
+                points = 60 * this.level;
                 break;
             case 4:
-                points = 70;
+                points = 70 * this.level;
                 break;
             case 5:
-                points = 80;
+                points = 80 * this.level;
                 break;
             case 6:
-                points = 90;
+                points = 90 * this.level;
                 break;
             case 7:
-                points = 100;
+                points = 190;
                 break;
             case 8:
-                points = 110;
+                points = 200;
                 break;
             case 9:
-                points = 120;
+                points = 220;
                 break;
             default:
                 break;

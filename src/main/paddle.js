@@ -9,4 +9,24 @@ class Paddle {
         this.beam = false;
         this.frame;
     }
+
+    update() {
+        // HANDLE UPDATING STATUS
+    }
+
+    show() {
+        // RENDER PADDLE
+    }
+
+    supersize() {
+        // MAKE PADDLE BIGGER
+    }
+
+    shrink() {
+        // MAKE PADDLE SMALLER
+    }
+
+    // ADD BEAM FUNCTION
+    // REMOVE BEAM FUNCTION
+    // ADD ABILITY TO FIRE BEAM ON BUTTON PRESS
 }
