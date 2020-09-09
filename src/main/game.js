@@ -1,7 +1,7 @@
 // Game constants
-const CONTROLS = { W: 87, A: 65, D: 68, Q: 81, R: 82, SPACE: 32 };
+const CONTROLS = { W: 87, A: 65, D: 68, Q: 81, L: 76, SPACE: 32 };
 const GAME_WIDTH = 656;
-const GAME_HEIGHT = 534;
+const GAME_HEIGHT = 554; // 534
 const ROWS = 30;
 const COLS = 15;
 const WALL = {
@@ -20,6 +20,11 @@ const BLOCK = {
     width: 28, height: 14
 };
 const BALL_RADIUS = 8;
+
+// Game status
+let options;
+let paused;
+let stopped;
 
 // Game values
 // let options;
@@ -66,9 +71,9 @@ class Game {
     // }
     constructor() {
         // Play sound
-        this.options = true;
-        this.paused = false;
-        this.stopped = false;
+        // this.options = true;
+        // this.paused = false;
+        // this.stopped = false;
         // this.paddle = new Paddle(); // add new Paddle class
         // this.balls = [new Ball()]; // an array of balls with new ball 
         this.treats = [];
@@ -81,7 +86,7 @@ class Game {
     }
 
     update() {
-        if (!this.options && !this.paused && !this.stopped) {
+        if (!options && !paused && !stopped) {
             // 1. should first update the paddle
 
             // 2. iterate through the balls and update them
@@ -97,14 +102,14 @@ class Game {
     }
 
     show() {
-        if (!this.stopped) {
+        if (!stopped) {
             background('lightblue');
             this.drawBoard(); // Draw the board
-            // Display game info
-            if (!this.options) {
+            this.displayInfo(); // Display game info
+            if (!options) {
                 // render paddle
                 // render each of the other elements
-            } else if (this.options) {
+            } else if (options) {
                 // show the options otherwise
             }
         }
@@ -153,25 +158,25 @@ class Game {
                 points = 50 * this.level;
                 break;
             case 3:
-                points = 60;
+                points = 60 * this.level;
                 break;
             case 4:
-                points = 70;
+                points = 70 * this.level;
                 break;
             case 5:
-                points = 80;
+                points = 80 * this.level;
                 break;
             case 6:
-                points = 90;
+                points = 90 * this.level;
                 break;
             case 7:
-                points = 100;
+                points = 190;
                 break;
             case 8:
-                points = 110;
+                points = 200;
                 break;
             case 9:
-                points = 120;
+                points = 220;
                 break;
             default:
                 break;
@@ -199,7 +204,7 @@ class Game {
         this.paddle = new Paddle();
         this.numFrames = 0;
         this.initLevel(LEVELS['level' + this.level])
-        this.options = false;
+        options = false;
     }
 
     switchLevel() {
@@ -210,5 +215,114 @@ class Game {
 
     drawBoard() {
         image(spriteGameBackground, SPACING.left, SPACING.top, BOARD.width, BOARD.height);
+    }
+
+    displayInfo() {
+        stroke(255, 55, 0);
+        fill(255, 255, 0);
+        textSize(28);
+        textAlign(LEFT);
+        // get a cool font
+        text(
+          "SCORE",
+          GAME_WIDTH - SPACING.right + SPACING.left,
+          SPACING.top + WALL.top + 2 * BLOCK.height, // 100
+          SPACING.right,
+          BOARD.height / 2
+        );
+        text(
+          "BALLS",
+          GAME_WIDTH - SPACING.right + SPACING.left,
+          SPACING.top + WALL.top + 2 * BLOCK.height + 175,
+          SPACING.right,
+          BOARD.height / 2
+        );
+        image(
+          spriteHeart,
+          GAME_WIDTH - SPACING.right + 92 + SPACING.left,
+          SPACING.top + WALL.top + 2 * BLOCK.height + 178,
+          20,
+          20
+        );
+        text(
+          "LEVEL",
+          GAME_WIDTH - SPACING.right + SPACING.left,
+          SPACING.top + WALL.top + 2 * BLOCK.height + 300,
+          SPACING.right,
+          BOARD.height / 2
+        );
+        stroke(255);
+        fill(255);
+        text(
+          this.score,
+          GAME_WIDTH - SPACING.right + SPACING.left,
+          SPACING.top + WALL.top + 2 * BLOCK.height + 30, // 125
+          SPACING.right,
+          BOARD.height / 2
+        );
+        text(
+          this.lives,
+          GAME_WIDTH - SPACING.right + SPACING.left,
+          SPACING.top + WALL.top + 2 * BLOCK.height + 205,
+          SPACING.right,
+          BOARD.height / 2
+        );
+        text(
+          this.level,
+          GAME_WIDTH - SPACING.right + SPACING.left,
+          SPACING.top + WALL.top + 2 * BLOCK.height + 330,
+          SPACING.right,
+          BOARD.height / 2
+        );
+        this.displayPaused(); // Render pause if player hits enter
+    }
+
+    displayPaused() {
+        if (paused) {
+            stroke(188, 25, 0);
+            fill(188, 25, 0);
+            textSize(28);
+            textAlign(LEFT);
+            text(
+              "PAUSED",
+              GAME_WIDTH - SPACING.right + SPACING.left,
+              SPACING.top + WALL.top + 2 * BLOCK.height + 250,
+              SPACING.right,
+              BOARD.height / 2
+            );
+        }
+    }
+
+    displayMenu() {
+        // DISPLAY MENU OPTIONS HERE
+    }
+
+    displayMessage(message, time, status) {
+        if (status) {
+            this.blocks.forEach(block => {
+                block.show();
+            });
+            this.paddle.show();
+            this.balls[0].show();
+        }
+        stopped = true;
+        this.numFrames = -time;
+
+        stroke(255);
+        fill(255);
+        textSize(25);
+        textAlign(CENTER);
+        text(
+          message,
+          SPACING.left,
+          SPACING.top + WALL.top + 2 * BLOCK.height + 100,
+          BOARD.width,
+          BOARD.height / 2
+        );
+    }
+
+    handleGameOver() {
+        new Game();
+        this.displayMessage('WOOF, GAME OVER!', 150);
     }
 }
