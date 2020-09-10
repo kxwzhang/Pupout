@@ -1,23 +1,23 @@
 // Game constants
 const CONTROLS = { W: 87, A: 65, D: 68, Q: 81, L: 76, SPACE: 32, P: 80 };
-const GAME_WIDTH = 656;
+const GAME_WIDTH = 653;
 const GAME_HEIGHT = 554; // 534
 const ROWS = 30;
 const COLS = 15;
 const WALL = {
-    top: 14, right: 14, left: 14
+    top: 14, right: 5, left: 5
 };
 const BOARD = {
-    width: 450, height: 520
+    width: 455, height: 520
 };
 const SPACING = {
-    top: 14, right: 168, left: 42
+    top: 14, right: 158, left: 42
 };
 const PADDLE = {
     width: 60, height: 40
 };
 const BLOCK = {
-    width: 28, height: 14
+    width: 29, height: 14
 };
 const BALL_RADIUS = 8;
 
@@ -53,7 +53,7 @@ function draw() {
 function keyPressed() {
     if (!options) {
         if (keyCode === CONTROLS.P) {
-            pasued = !paused;
+            paused = !paused;
         }
         if (keyCode === CONTROLS.W && !paused) {
             balls.forEach(ball => {
@@ -94,23 +94,7 @@ class Game {
         level = 1;
         lives = 3;
         numFrames = 0;
-        console.log('options in initialize', options);
     }
-    // constructor() {
-    //     // Play sound
-    //     this.options = true;
-    //     this.paused = false;
-    //     this.stopped = false;
-    //     this.paddle = new Paddle(); 
-    //     this.balls = [new Ball()]; 
-    //     this.treats = [];
-    //     this.blocks = [];
-    //     this.beams = [];
-    //     this.level = 1;
-    //     this.score = 0;
-    //     this.lives = 3;
-    //     this.numFrames = 0;
-    // }
 
     update() {
         if (!options && !paused && !stopped) {
@@ -128,7 +112,7 @@ class Game {
                         if (lives > 0) {
                             // Play sound
                             balls.push(new Ball());
-                            this.displayMessage('\n\n\nPUPPER READY', 90, 'f')
+                            this.displayMessage('\n\n\nPUPPER READY FOR ACTION', 100, 'f')
                         } else {
                             game.handleGameOver();
                         }
@@ -150,6 +134,7 @@ class Game {
         }
         numFrames += 1;
         if (numFrames === 0) {
+            console.log('numFrames',numFrames)
             stopped = false;
         }
     }
@@ -212,6 +197,8 @@ class Game {
     checkEmptyBlocks() {
         let isEmpty = true;
         blocks.forEach(block => {
+            // Check to make sure that the 
+            // only blocks remaining are the unbreakable ones
             if (block.type !== 1) {
                 isEmpty = false;
             }
@@ -239,18 +226,12 @@ class Game {
                 points = 90 * level;
                 break;
             case 7:
-                points = 190;
-                break;
-            case 8:
                 points = 200;
-                break;
-            case 9:
-                points = 220;
                 break;
             default:
                 break;
         }
-        score += points; // update score with points
+        score += points; // update score with points from each block
     }
 
     // Invoking this will generate the next level
@@ -262,8 +243,8 @@ class Game {
         beams = [];
         treats = [];
         numFrames = 0;
-        // Check to make sure our level is below 10, otherwise reset to level 1
-        if (level > 10) {
+        // Check to make sure our level is below 5, otherwise reset to level 1
+        if (level > 5) {
             level = 1;
         }
         this.initLevel(LEVELS['level' + level]);
@@ -278,8 +259,8 @@ class Game {
 
     switchLevel() {
         level += 1;
-        // Reset to level 1 if level goes beyond 10
-        if (level > 10) level = 1;
+        // Reset to level 1 if level goes beyond 5
+        if (level > 5) level = 1;
     }
 
     drawBoard() {
@@ -291,57 +272,56 @@ class Game {
         fill(255, 255, 0);
         textSize(28);
         textAlign(LEFT);
-        // get a cool font
         text(
           'SCORE',
-          GAME_WIDTH - SPACING.right + SPACING.left,
-          SPACING.top + WALL.top + 2 * BLOCK.height, // 100
+          GAME_WIDTH - SPACING.right + SPACING.left - 10,
+          SPACING.top + WALL.top + (2 * BLOCK.height), // 100
           SPACING.right,
-          BOARD.height / 2
+          (BOARD.height / 2)
         );
         text(
           'BALLS',
-          GAME_WIDTH - SPACING.right + SPACING.left,
-          SPACING.top + WALL.top + 2 * BLOCK.height + 175,
+          GAME_WIDTH - SPACING.right + SPACING.left - 10,
+          SPACING.top + WALL.top + (2 * BLOCK.height) + 175,
           SPACING.right,
-          BOARD.height / 2
+          (BOARD.height / 2)
         );
         image(
           spriteTennisball,
-          GAME_WIDTH - SPACING.right + 92 + SPACING.left,
-          SPACING.top + WALL.top + 2 * BLOCK.height + 178,
+          GAME_WIDTH - SPACING.right + 92 + SPACING.left - 10,
+          SPACING.top + WALL.top + (2 * BLOCK.height) + 178,
           20,
           20
         );
         text(
           'LEVEL',
-          GAME_WIDTH - SPACING.right + SPACING.left,
-          SPACING.top + WALL.top + 2 * BLOCK.height + 300,
+          GAME_WIDTH - SPACING.right + SPACING.left - 10,
+          SPACING.top + WALL.top + (2 * BLOCK.height) + 300,
           SPACING.right,
-          BOARD.height / 2
+          (BOARD.height / 2)
         );
         stroke(255);
         fill(255);
         text(
           score,
-          GAME_WIDTH - SPACING.right + SPACING.left,
-          SPACING.top + WALL.top + 2 * BLOCK.height + 30, // 125
+          GAME_WIDTH - SPACING.right + SPACING.left - 10,
+          SPACING.top + WALL.top + (2 * BLOCK.height) + 30, // 125
           SPACING.right,
-          BOARD.height / 2
+          (BOARD.height / 2)
         );
         text(
           lives,
-          GAME_WIDTH - SPACING.right + SPACING.left,
-          SPACING.top + WALL.top + 2 * BLOCK.height + 205,
+          GAME_WIDTH - SPACING.right + SPACING.left - 10,
+          SPACING.top + WALL.top + (2 * BLOCK.height) + 205,
           SPACING.right,
-          BOARD.height / 2
+          (BOARD.height / 2)
         );
         text(
           level,
-          GAME_WIDTH - SPACING.right + SPACING.left,
-          SPACING.top + WALL.top + 2 * BLOCK.height + 330,
+          GAME_WIDTH - SPACING.right + SPACING.left - 10,
+          SPACING.top + WALL.top + (2 * BLOCK.height) + 330,
           SPACING.right,
-          BOARD.height / 2
+          (BOARD.height / 2)
         );
         this.displayPaused(); // Render pause if player hits enter
     }
@@ -354,10 +334,10 @@ class Game {
             textAlign(LEFT);
             text(
               'PAUSED',
-              GAME_WIDTH - SPACING.right + SPACING.left,
-              SPACING.top + WALL.top + 2 * BLOCK.height + 250,
+              GAME_WIDTH - SPACING.right + SPACING.left - 10,
+              SPACING.top + WALL.top + (2 * BLOCK.height) + 90,
               SPACING.right,
-              BOARD.height / 2
+              (BOARD.height / 2)
             );
         }
     }
@@ -371,9 +351,9 @@ class Game {
         text(
           'BARKANOID',
           SPACING.left + WALL.left,
-          SPACING.top + WALL.top + 2 * BLOCK.height,
+          SPACING.top + WALL.top + (2 * BLOCK.height),
           BOARD.width - WALL.left - WALL.right,
-          BOARD.height / 2
+          (BOARD.height / 2)
         );
 
         textSize(14);
@@ -381,52 +361,60 @@ class Game {
         text(
           'GAMEPLAY INFO',
           SPACING.left + WALL.left + 210,
-          GAME_HEIGHT - 17 * BLOCK.height
+          GAME_HEIGHT - (17 * BLOCK.height)
         );
 
         textAlign(LEFT);
         text(
           'CONTROLS: ',
-          SPACING.left + WALL.left + WALL.left + 20,
-          GAME_HEIGHT - 15 * BLOCK.height
+          SPACING.left + WALL.left + WALL.left + 11,
+          GAME_HEIGHT - (15 * BLOCK.height)
         );
         text(
           'MOVE : \'A\', \'D\'',
           SPACING.left + WALL.left + WALL.left + WALL.left + BLOCK.width - 21,
-          GAME_HEIGHT - 13 * BLOCK.height
+          GAME_HEIGHT - (13 * BLOCK.height)
         );
         text(
           'LAUNCH BALL: \'W\'',
           SPACING.left + WALL.left + WALL.left + WALL.left + BLOCK.width - 21,
-          GAME_HEIGHT - 11 * BLOCK.height
+          GAME_HEIGHT - (11 * BLOCK.height)
         );
         text(
           'BEAM SPECIAL: \'SPACEBAR\'',
           SPACING.left + WALL.left + WALL.left + WALL.left + BLOCK.width - 21,
-          GAME_HEIGHT - 9 * BLOCK.height
+          GAME_HEIGHT - (9 * BLOCK.height)
         );
         text(
           'PAUSE: \'P\'',
           SPACING.left + WALL.left + WALL.left + WALL.left + BLOCK.width - 21,
-          GAME_HEIGHT - 7 * BLOCK.height
+          GAME_HEIGHT - (7 * BLOCK.height)
         );
         text(
           'QUIT: \'Q\'',
           SPACING.left + WALL.left + WALL.left + WALL.left + BLOCK.width - 21,
-          GAME_HEIGHT - 5 * BLOCK.height
+          GAME_HEIGHT - (5 * BLOCK.height)
         );
         text(
           'PICK A LEVEL: \'L\'',
           SPACING.left + WALL.left + WALL.left + WALL.left + BLOCK.width - 21,
-          GAME_HEIGHT - 3 * BLOCK.height
+          GAME_HEIGHT - (3 * BLOCK.height)
+        );
+        stroke(255, 55, 0);
+        fill(255, 255, 0);
+        textAlign(CENTER);
+        text(
+          'HIT \'ENTER\' TO START THE BALL GAME!',
+          SPACING.left + WALL.left,
+          SPACING.top + WALL.top + (2 * BLOCK.height) + 200,
+          BOARD.width - WALL.left - WALL.right,
+          (BOARD.height / 2)
         );
     }
 
     displayMessage(message, time, status) {
         if (status) {
-            blocks.forEach(block => {
-                block.show();
-            });
+            blocks.forEach(block => block.show());
             paddle.show();
             balls[0].show();
         }
