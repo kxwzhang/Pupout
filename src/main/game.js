@@ -371,14 +371,14 @@ class Game {
           GAME_HEIGHT - (15 * BLOCK.height)
         );
         text(
-          'MOVE : \'A\', \'D\'',
+          'LAUNCH BALL: \'W\'',
           SPACING.left + WALL.left + WALL.left + WALL.left + BLOCK.width - 21,
           GAME_HEIGHT - (13 * BLOCK.height)
         );
         text(
-          'LAUNCH BALL: \'W\'',
+          "MOVE : 'A', 'D'",
           SPACING.left + WALL.left + WALL.left + WALL.left + BLOCK.width - 21,
-          GAME_HEIGHT - (11 * BLOCK.height)
+          GAME_HEIGHT - 11 * BLOCK.height
         );
         text(
           'BEAM SPECIAL: \'SPACEBAR\'',
@@ -391,7 +391,7 @@ class Game {
           GAME_HEIGHT - (7 * BLOCK.height)
         );
         text(
-          'QUIT: \'Q\'',
+          'QUIT: HIT \'P\' THEN \'Q\'',
           SPACING.left + WALL.left + WALL.left + WALL.left + BLOCK.width - 21,
           GAME_HEIGHT - (5 * BLOCK.height)
         );
