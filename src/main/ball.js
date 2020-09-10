@@ -91,11 +91,11 @@ class Ball {
   }
 
   hitPaddle(action) {
-    console.log('hitPaddle action ',action);
+    console.log('hitPaddle action ', action);
     switch (action.dir) {
       case 'TOP':
         this.y = action.y;
-        this.dy *= 1;
+        this.dy *= -1;
         break;
       case 'TOP_RIGHT':   
       case 'TOP_LEFT':

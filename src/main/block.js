@@ -1,6 +1,6 @@
 class Block {
     constructor(x, y, type) {
-        this.x = SPACING.left + WALL.left + x * BLOCK.width + 6;
+        this.x = SPACING.left + WALL.left + x * BLOCK.width + 5;
         this.y = SPACING.top + WALL.top + y * BLOCK.height;
         this.type = type;
         // Use infinity to create unbreakable blocks
