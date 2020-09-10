@@ -1,5 +1,5 @@
 // Game constants
-const CONTROLS = { W: 87, A: 65, D: 68, Q: 81, L: 76, SPACE: 32 };
+const CONTROLS = { W: 87, A: 65, D: 68, Q: 81, L: 76, SPACE: 32, P: 80 };
 const GAME_WIDTH = 656;
 const GAME_HEIGHT = 554; // 534
 const ROWS = 30;
@@ -44,9 +44,38 @@ function setup() {
     game.initialize();
 }
 
+// p5 draw
 function draw() {
     // game.update();
     game.show();
+}
+// p5 keyPressed handling game controls
+function keyPressed() {
+    if (!options) {
+        if (keyCode === CONTROLS.P) {
+            pasued = !paused;
+        }
+        if (keyCode === CONTROLS.W && !paused) {
+            balls.forEach(ball => {
+                if (!ball.moving) ball.launch();
+            });
+        }
+        if (keyCode === CONTROLS.SPACE && !paused) {
+            paddle.fire();
+        }
+        if (paused && keyCode === CONTROLS.Q) {
+            game.initialize();
+        }
+    }
+    if (options) {
+        if (keyCode === CONTROLS.L) {
+            game.switchLevel();
+        }
+        if (keyCode === ENTER) {
+            game.startGame();
+        }
+    }
+    return false;
 }
 
 // Game Class
@@ -88,7 +117,24 @@ class Game {
             // 1. should first update the paddle
             paddle.update();
             // 2. iterate through the balls and update them
-
+            for (let i = balls.length - 1; i > -1; i--) {
+                balls[i].update();
+                if (balls[i].destroyed()) {
+                    ball.splice(i, 1);
+                    if (balls.length === 0) {
+                        lives -= 1;
+                        treats = [];
+                        paddle = new Paddle();
+                        if (lives > 0) {
+                            // Play sound
+                            balls.push(new Ball());
+                            this.displayMessage('\n\n\nPUPPER READY', 90, 'f')
+                        } else {
+                            game.handleGameOver();
+                        }
+                    }
+                }
+            }
             // 3. iterate through the treats and update them
 
             // 4. iterate through the beams and update them
@@ -131,7 +177,7 @@ class Game {
             }
           }
         }
-        let message = 'LEVEL ' + level + '\nGET READY'
+        let message = 'LEVEL ' + level + '\nGET READY PUPPER'
         // display message
         this.displayMessage(message, 150);
         // Add sounds

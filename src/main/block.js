@@ -16,9 +16,26 @@ class Block {
     show() {
         switch (this.type) {
             case 1:
-                image();
+                image(spriteBlock1, this.x, this.y, BLOCK.width, BLOCK.h);
                 break;
-        
+            case 2:
+                image(spriteBlock2, this.x, this.y, BLOCK.width, BLOCK.h);
+                break;
+            case 3:
+                image(spriteBlock3, this.x, this.y, BLOCK.width, BLOCK.h);
+                break;
+            case 4:
+                image(spriteBlock4, this.x, this.y, BLOCK.width, BLOCK.h);
+                break;
+            case 5:
+                image(spriteBlock5, this.x, this.y, BLOCK.width, BLOCK.h);
+                break;
+            case 6:
+                image(spriteBlock6, this.x, this.y, BLOCK.width, BLOCK.h);
+                break;
+            case 7:
+                image(spriteBlock7, this.x, this.y, BLOCK.width, BLOCK.h);
+                break;
             default:
                 break;
         }
