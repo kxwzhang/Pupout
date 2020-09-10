@@ -20,12 +20,29 @@
     <script src='./src/main/ball.js'></script>
     <script src="./src/main/levels.js"></script>
     <script src="./src/main/game.js"></script>
+    <audio id="background_audio" autoplay="true" muted="true" loop="loop">
+        <source src="./src/assets/dolphins.mp3">
+    </audio>
+    <script>
+        function mute() {
+            if (document.getElementById('background_audio').muted == true) {
+                document.getElementById('mute-music').classList.remove('muted');
+                document.getElementById('background_audio').muted = false;
+            } else {
+                document.getElementById('mute-music').classList.add('muted');
+                document.getElementById('background_audio').muted = true;
+            }
+        }
+    </script>
 </head>
 <body>
     <aside class='info-container'>
         <div class='barkanoid-title'>
-            <h1>Barkanoid</h1>
+            Barkanoid
         </div>
+        <button id='mute-music' class='muted' onclick="mute()">
+            Mute Music
+        </button>
         <span>
             <p class='info-text'>
                 Do you have what it takes to become to ultimate ball-retriever pupper?
@@ -33,7 +50,7 @@
             <br>
             <p class='info-text'>
                 Play through 5 different levels and eat some treats along the way
-                to unlock some sweet abilities!
+                to unlock sweet abilities!
             </p>
             <br>
             <p>
