@@ -79,6 +79,7 @@ class Ball {
   }
 
   hitPaddle(action) {
+    console.log('hitPaddle action ',action);
     switch (action.dir) {
       case 'TOP':
         this.y = action.y;
@@ -104,6 +105,7 @@ class Ball {
   }
 
   hitBlock(action) {
+    console.log('hitBlock action ', action)
     switch (action.dir) {
         case 'TOP':
         case 'BOTTOM':
