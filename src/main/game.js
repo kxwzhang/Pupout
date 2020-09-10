@@ -46,7 +46,7 @@ function setup() {
 
 // p5 draw
 function draw() {
-    // game.update();
+    game.update();
     game.show();
 }
 // p5 keyPressed handling game controls
@@ -120,7 +120,7 @@ class Game {
             for (let i = balls.length - 1; i > -1; i--) {
                 balls[i].update();
                 if (balls[i].destroyed()) {
-                    ball.splice(i, 1);
+                    balls.splice(i, 1);
                     if (balls.length === 0) {
                         lives -= 1;
                         treats = [];
@@ -130,7 +130,7 @@ class Game {
                             balls.push(new Ball());
                             this.displayMessage('\n\n\nPUPPER READY', 90, 'f')
                         } else {
-                            game.handleGameOver();b
+                            game.handleGameOver();
                         }
                     }
                 }
