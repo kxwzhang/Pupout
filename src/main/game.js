@@ -130,7 +130,7 @@ class Game {
                             balls.push(new Ball());
                             this.displayMessage('\n\n\nPUPPER READY', 90, 'f')
                         } else {
-                            game.handleGameOver();
+                            game.handleGameOver();b
                         }
                     }
                 }
@@ -142,6 +142,15 @@ class Game {
             // Check if not on the options, then check if all the blocks have been cleared
             // If all blocks cleared then initialize next level
             // Increment the numFrames
+            if (!options) {
+                if (this.checkEmptyBlocks()) {
+                    this.nextLevel();
+                }
+            }
+        }
+        numFrames += 1;
+        if (numFrames === 0) {
+            stopped = false;
         }
     }
 
@@ -152,13 +161,14 @@ class Game {
             this.drawBoard(); // Draw the board
             this.displayInfo(); // Display game info
             if (!options) {
-                console.log('options ', options);
+                // console.log('options ', options);
                 paddle.show(); // render paddle
                 // render each of the other elements
                 balls.forEach(ball => ball.show());
-                // blocks.forEach(block => block.show());
+                // debugger
+                blocks.forEach(block => block.show());
                 treats.forEach(treat => treat.show());
-                beams.forEach(beam => beam.show());
+                // beams.forEach(beam => beam.show());
             } else if (options) {
                 // show the options otherwise
                 this.displayMenu();
@@ -173,7 +183,7 @@ class Game {
         for (let y = 0; y < ROWS - 8; y++) {
           for (let x = 0; x < COLS; x++) {
             if (lvl[y][x] !== 0) {
-              blocks.push(new Brick(x, y, lvl[y][x]));
+              blocks.push(new Block(x, y, lvl[y][x]));
             }
           }
         }
@@ -354,6 +364,62 @@ class Game {
 
     displayMenu() {
         // DISPLAY MENU OPTIONS HERE
+        stroke(255);
+        fill(255);
+        textSize(35);
+        textAlign(CENTER);
+        text(
+          'BARKANOID',
+          SPACING.left + WALL.left,
+          SPACING.top + WALL.top + 2 * BLOCK.height,
+          BOARD.width - WALL.left - WALL.right,
+          BOARD.height / 2
+        );
+
+        textSize(14);
+        textAlign(CENTER);
+        text(
+          'GAMEPLAY INFO',
+          SPACING.left + WALL.left + 210,
+          GAME_HEIGHT - 17 * BLOCK.height
+        );
+
+        textAlign(LEFT);
+        text(
+          'CONTROLS: ',
+          SPACING.left + WALL.left + WALL.left + 20,
+          GAME_HEIGHT - 15 * BLOCK.height
+        );
+        text(
+          'MOVE : \'A\', \'D\'',
+          SPACING.left + WALL.left + WALL.left + WALL.left + BLOCK.width - 21,
+          GAME_HEIGHT - 13 * BLOCK.height
+        );
+        text(
+          'LAUNCH BALL: \'W\'',
+          SPACING.left + WALL.left + WALL.left + WALL.left + BLOCK.width - 21,
+          GAME_HEIGHT - 11 * BLOCK.height
+        );
+        text(
+          'BEAM SPECIAL: \'SPACEBAR\'',
+          SPACING.left + WALL.left + WALL.left + WALL.left + BLOCK.width - 21,
+          GAME_HEIGHT - 9 * BLOCK.height
+        );
+        text(
+          'PAUSE: \'P\'',
+          SPACING.left + WALL.left + WALL.left + WALL.left + BLOCK.width - 21,
+          GAME_HEIGHT - 7 * BLOCK.height
+        );
+        text(
+          'QUIT: \'Q\'',
+          SPACING.left + WALL.left + WALL.left + WALL.left + BLOCK.width - 21,
+          GAME_HEIGHT - 5 * BLOCK.height
+        );
+        text(
+          'PICK A LEVEL: \'L\'',
+          SPACING.left + WALL.left + WALL.left + WALL.left + BLOCK.width - 21,
+          GAME_HEIGHT - 3 * BLOCK.height
+        );
     }
 
     displayMessage(message, time, status) {
