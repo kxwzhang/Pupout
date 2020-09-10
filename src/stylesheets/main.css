@@ -1,6 +1,6 @@
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 900px) {
   .info-container {
-    /* display: none; */
+    display: none;
     /* float: none;
     width: 100%; */
   }
@@ -61,12 +61,12 @@ body {
 }
 
 #mute-music {
-    color: black;
-    border-bottom: 1px solid black;
+    outline: none;
+    color: gray;
+    padding: 10px;
 }
 
 .muted {
-    color: crimson;
     text-decoration: line-through;
 }
 
@@ -94,4 +94,8 @@ body {
 
 .fa-github:hover {
     color: gray;
+}
+
+.how-to-play {
+    color: rgb(255, 255, 0);
 }

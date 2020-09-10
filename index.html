@@ -20,17 +20,18 @@
     <script src='./src/main/ball.js'></script>
     <script src="./src/main/levels.js"></script>
     <script src="./src/main/game.js"></script>
-    <audio id="background_audio" autoplay="true" muted="true" loop="loop">
+    <audio id="background_audio" autoplay="false" loop="loop">
         <source src="./src/assets/dolphins.mp3">
     </audio>
     <script>
         function mute() {
-            if (document.getElementById('background_audio').muted == true) {
-                document.getElementById('mute-music').classList.remove('muted');
-                document.getElementById('background_audio').muted = false;
+            const muteMusic = document.getElementById('mute-music');
+            if (muteMusic.className === 'muted') {
+                muteMusic.classList.remove('muted');
+                document.getElementById('background_audio').play();
             } else {
-                document.getElementById('mute-music').classList.add('muted');
-                document.getElementById('background_audio').muted = true;
+                muteMusic.classList.add('muted');
+                document.getElementById('background_audio').pause();
             }
         }
     </script>
@@ -49,17 +50,20 @@
             </p>
             <br>
             <p class='info-text'>
-                Play through 5 different levels and eat some treats along the way
+                Play as a pupper through 5 different levels and eat some treats along the way
                 to unlock sweet abilities!
             </p>
             <br>
+            <p class='how-to-play'>
+                Objective:
+            </p>
             <p>
-                How to Play:
+                The goal is to break all the blocks to advance to the next level. 
+                Each level gets progressively harder. You only have three lives,
+                so proceed with caution.
+                See how far you can get!
             </p>
             <br>
-            <ul>
-                <li></li>
-            </ul>
         </span>
         <div>
             <nav class='nav-links'>
