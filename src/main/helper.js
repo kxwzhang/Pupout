@@ -1,17 +1,17 @@
 // function for ball trajectory 
-function intecept(ax, ay, bx, by, cx, cy, dx, dy, label) {
+function intercept(ax, ay, bx, by, cx, cy, dx, dy, label) {
     // let the denominator be the difference of products
     let denom = ((dy - cy) * (bx - ax)) - ((dx - cx) * (by - ay));
     // check to make sure there is no zero-division
     if (denom !== 0) {
-        let divisionA = ((dx - cx) * (ay - cy) - (dy - cy) * (ax - cx)) / denom;
+        let divisionA = (((dx - cx) * (ay - cy) - (dy - cy) * (ax - cx))) / denom;
         if ((divisionA >= 0) && (divisionA <= 1)) {
             let divisionB = ((bx - ax) * (ay - cy) - (by - ay) * (ax - cx)) / denom;
             console.log('divisionB: ', divisionB);
             if ((divisionB >= 0) && (divisionB <= 1)) {
                 console.log('divisionA: ', divisionA);
-                let x = ax + divisionA * (bx - ax);
-                let y = ay + divisionA * (by - ay);
+                let x = ax + (divisionA * (bx - ax));
+                let y = ay + (divisionA * (by - ay));
                 return { x: x, y: y, dir: label };
             }
         }
@@ -91,9 +91,9 @@ function ballInterceptPaddle(ball) {
           ball.x + ball.dx,
           ball.y + ball.dy,
           paddle.x,
-          paddle.y + PADDLE.height / 2 - BALL_RADIUS,
+          paddle.y + (PADDLE.height / 2) - BALL_RADIUS,
           paddle.x + paddle.width,
-          paddle.y + PADDLE.height / 2 - BALL_RADIUS,
+          paddle.y + (PADDLE.height / 2) - BALL_RADIUS,
           "TOP"
         );
     }
@@ -101,7 +101,7 @@ function ballInterceptPaddle(ball) {
 }
 
 // function for checking ball intercepting a block
-function ballInterceptBlock(ball, b) {
+function ballInterceptBlock(ball, block) {
     let action;
     if (ball.dx < 0) {
         action = intercept(
@@ -109,10 +109,10 @@ function ballInterceptBlock(ball, b) {
         ball.y,
         ball.x + ball.dx,
         ball.y + ball.dy,
-        b.x + BLOCK.width + BALL_RADIUS,
-        b.y - BALL_RADIUS,
-        b.x + BLOCK.width + BALL_RADIUS,
-        b.y + BLOCK.height + BALL_RADIUS,
+        block.x + BLOCK.width + BALL_RADIUS,
+        block.y - BALL_RADIUS,
+        block.x + BLOCK.width + BALL_RADIUS,
+        block.y + BLOCK.height + BALL_RADIUS,
         'RIGHT'
         );
     }
@@ -122,10 +122,10 @@ function ballInterceptBlock(ball, b) {
         ball.y,
         ball.x + ball.dx,
         ball.y + ball.dy,
-        b.x - BALL_RADIUS,
-        b.y - BALL_RADIUS,
-        b.x - BALL_RADIUS,
-        b.y + BLOCK.height + BALL_RADIUS,
+        block.x - BALL_RADIUS,
+        block.y - BALL_RADIUS,
+        block.x - BALL_RADIUS,
+        block.y + BLOCK.height + BALL_RADIUS,
         'LEFT'
         );
     }
@@ -135,10 +135,10 @@ function ballInterceptBlock(ball, b) {
         ball.y,
         ball.x + ball.dx,
         ball.y + ball.dy,
-        b.x - BALL_RADIUS,
-        b.y + BLOCK.height + BALL_RADIUS,
-        b.x + BLOCK.width + BALL_RADIUS,
-        b.y + BLOCK.height + BALL_RADIUS,
+        block.x - BALL_RADIUS,
+        block.y + BLOCK.height + BALL_RADIUS,
+        block.x + BLOCK.width + BALL_RADIUS,
+        block.y + BLOCK.height + BALL_RADIUS,
         'BOTTOM'
         );
     }
@@ -148,10 +148,10 @@ function ballInterceptBlock(ball, b) {
         ball.y,
         ball.x + ball.dx,
         ball.y + ball.dy,
-        b.x - BALL_RADIUS,
-        b.y - BALL_RADIUS,
-        b.x + BLOCK.width + BALL_RADIUS,
-        b.y - BALL_RADIUS,
+        block.x - BALL_RADIUS,
+        block.y - BALL_RADIUS,
+        block.x + BLOCK.width + BALL_RADIUS,
+        block.y - BALL_RADIUS,
         'TOP'
         );
     }

@@ -36,11 +36,17 @@ class Paddle {
     show() {
         // RENDER PADDLE AND CONDITIONALLY RENDER SUPER DOG
         image(
-            spriteFlatDog, 
+            spriteSuperDog, 
             this.x, 
             this.y, 
             this.width, 
-            PADDLE.height);
+            PADDLE.height - 3);
+        // image(
+        //     spriteFlatDog, 
+        //     this.x, 
+        //     this.y, 
+        //     this.width, 
+        //     PADDLE.height);
     }
 
     supersize() {
