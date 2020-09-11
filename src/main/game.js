@@ -119,12 +119,12 @@ class Game {
                     }
                 }
             }
-            console.log(treats);
             // 3. iterate through the treats and update them
             for (let i = treats.length - 1; i > -1; i--) {
                 treats[i].update();
                 if (treats[i].hitPaddle()) {
                     treats.splice(i, 1);
+                    console.log(treats);
                 }
             } 
             // 4. iterate through the beams and update them
@@ -287,6 +287,13 @@ class Game {
           (BOARD.height / 2)
         );
         text(
+          'TREATS:',
+          GAME_WIDTH - SPACING.right + SPACING.left - 10,
+          SPACING.top + WALL.top + (2 * BLOCK.height) + 50, // 100
+          SPACING.right,
+          (BOARD.height / 2)
+        );
+        text(
           'BALLS',
           GAME_WIDTH - SPACING.right + SPACING.left - 10,
           SPACING.top + WALL.top + (2 * BLOCK.height) + 175,
@@ -316,6 +323,30 @@ class Game {
           SPACING.right,
           (BOARD.height / 2)
         );
+        if (treats.length > 0) {
+            text(
+                treats[treats.length - 1].type,
+                GAME_WIDTH - SPACING.right + SPACING.left - 10,
+                SPACING.top + WALL.top + 2 * BLOCK.height + 80, // 125
+                SPACING.right,
+                BOARD.height / 2
+            );
+        } else {
+             text(
+               "NONE",
+               GAME_WIDTH - SPACING.right + SPACING.left - 10,
+               SPACING.top + WALL.top + 2 * BLOCK.height + 80, // 125
+               SPACING.right,
+               BOARD.height / 2
+             );
+        }
+        // text(
+        //   treats.length > 0 ? treats[0].type : "NONE",
+        //   GAME_WIDTH - SPACING.right + SPACING.left - 10,
+        //   SPACING.top + WALL.top + 2 * BLOCK.height + 80, // 125
+        //   SPACING.right,
+        //   BOARD.height / 2
+        // );
         text(
           lives,
           GAME_WIDTH - SPACING.right + SPACING.left - 10,

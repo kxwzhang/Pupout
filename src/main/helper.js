@@ -7,9 +7,7 @@ function intercept(ax, ay, bx, by, cx, cy, dx, dy, label) {
         let divisionA = (((dx - cx) * (ay - cy) - (dy - cy) * (ax - cx))) / denom;
         if ((divisionA >= 0) && (divisionA <= 1)) {
             let divisionB = ((bx - ax) * (ay - cy) - (by - ay) * (ax - cx)) / denom;
-            console.log('divisionB: ', divisionB);
             if ((divisionB >= 0) && (divisionB <= 1)) {
-                console.log('divisionA: ', divisionA);
                 let x = ax + (divisionA * (bx - ax));
                 let y = ay + (divisionA * (by - ay));
                 return { x: x, y: y, dir: label };
