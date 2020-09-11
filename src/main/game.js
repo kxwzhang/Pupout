@@ -119,6 +119,7 @@ class Game {
                     }
                 }
             }
+            console.log(treats);
             // 3. iterate through the treats and update them
             for (let i = treats.length - 1; i > -1; i--) {
                 treats[i].update();
