@@ -174,6 +174,7 @@ class Game {
         }
         let message = 'LEVEL ' + level + '\nGET READY PUPPER'
         // display message
+        // debugger
         this.displayMessage(message, 150);
         // Add sounds
     }
@@ -419,6 +420,7 @@ class Game {
     displayMessage(message, time, status) {
         this.drawBoard();
         if (status) {
+            // debugger
             blocks.forEach(block => block.show());
             paddle.show();
             balls[0].show();
