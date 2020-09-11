@@ -37,7 +37,7 @@ class Treats {
                 image(spriteBeamPot, this.x, this.y, BLOCK.width, BLOCK.height);
                 break;
             case 'DROP PARTY':
-                image(spriteDropParty, this.x, this.y, BLOCK.width, BLOCK.height);g
+                image(spriteDropParty, this.x, this.y, BLOCK.width, BLOCK.height);
                 break;
             default:
                 break;
@@ -71,7 +71,9 @@ class Treats {
                     default:
                         break;
                 }
-                debugger
+                // debugger
+                return true;
             }
+            return false;
     }
 }
