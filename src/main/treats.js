@@ -66,9 +66,12 @@ class Treats {
                         game.clearTreats();
                         paddle.startBeam();
                         break;
+                    case 'DROP PARTY':
+                        balls[0].dropParty();
                     default:
                         break;
                 }
+                debugger
             }
     }
 }
