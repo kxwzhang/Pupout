@@ -25,19 +25,19 @@ class Treats {
     show() {
         switch (this.type) {
             case 'EXTRA LIFE':
-                // image(/*some image */, this.x, this.y, BLOCK.width, BLOCK.height);
+                image(spriteXLife, this.x, this.y, BLOCK.width, BLOCK.height);
                 break;
             case 'DOUBLE':
-                // image(/*some image */, this.x, this.y, BLOCK.width, BLOCK.height);
+                image(spriteDouble, this.x, this.y, BLOCK.width, BLOCK.height);
                 break;
             case 'MAGNET':
-                // image(/*some image */, this.x, this.y, BLOCK.width, BLOCK.height);
+                image(spriteMagnet, this.x, this.y, BLOCK.width, BLOCK.height);
                 break;
             case 'BEAM':
-                // image(/*some image */, this.x, this.y, BLOCK.width, BLOCK.height);
+                image(spriteBeamPot, this.x, this.y, BLOCK.width, BLOCK.height);
                 break;
             case 'DROP PARTY':
-                // image(/*some image */, this.x, this.y, BLOCK.width, BLOCK.height);g
+                image(spriteDropParty, this.x, this.y, BLOCK.width, BLOCK.height);g
                 break;
             default:
                 break;

@@ -11,4 +11,9 @@ function preload() {
   spriteBlock5 = loadImage("src/assets/5.png");
   spriteBlock6 = loadImage("src/assets/6.png");
   spriteBlock7 = loadImage("src/assets/7.png");
+  spriteXLife = loadImage("src/assets/tile001.png");
+  spriteDouble = loadImage("src/assets/tile007.png");
+  spriteMagnet = loadImage("src/assets/tile008.png");
+  spriteBeamPot = loadImage("src/assets/tile006.png");
+  spriteDropParty = loadImage("src/assets/tile010.png");
 }
