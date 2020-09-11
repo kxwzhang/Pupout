@@ -417,6 +417,7 @@ class Game {
     }
 
     displayMessage(message, time, status) {
+        this.drawBoard();
         if (status) {
             blocks.forEach(block => block.show());
             paddle.show();
