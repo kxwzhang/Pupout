@@ -43,4 +43,8 @@ class Treats {
                 break;
         }
     }
+
+    hitPaddle() {
+        if (this.y + BLOCK.height > paddle.y && this.y < paddly.y + PADDLE.height && )
+    }
 }
