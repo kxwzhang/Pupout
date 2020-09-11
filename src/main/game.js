@@ -120,7 +120,12 @@ class Game {
                 }
             }
             // 3. iterate through the treats and update them
-
+            for (let i = treats.length - 1; i > -1; i--) {
+                treats[i].update();
+                if (treats[i].hitPaddle()) {
+                    treats.splice(i, 1);
+                }
+            } 
             // 4. iterate through the beams and update them
 
             // Check if not on the options, then check if all the blocks have been cleared
