@@ -320,8 +320,8 @@ class Game {
       SPACING.right,
       BOARD.height / 2
     );
-    stroke(255);
-    fill(255);
+    stroke(30, 144, 255);
+    fill(30, 144, 255);
     text(
       score,
       GAME_WIDTH - SPACING.right + SPACING.left - 10,
@@ -330,6 +330,8 @@ class Game {
       BOARD.height / 2
     );
     if (treats.length > 0) {
+      stroke(50, 205, 50);
+      fill(50, 205, 50);
       text(
         treats[treats.length - 1].type,
         GAME_WIDTH - SPACING.right + SPACING.left - 10,
@@ -338,6 +340,8 @@ class Game {
         BOARD.height / 2
       );
     } else {
+      stroke(188, 25, 0);
+      fill(188, 25, 0);
       text(
         "NONE",
         GAME_WIDTH - SPACING.right + SPACING.left - 10,
@@ -353,6 +357,8 @@ class Game {
     //   SPACING.right,
     //   BOARD.height / 2
     // );
+    stroke(255);
+    fill(255);
     text(
       lives,
       GAME_WIDTH - SPACING.right + SPACING.left - 10,
