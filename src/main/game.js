@@ -186,7 +186,7 @@ class Game {
 
     // Clears the treats
     clearTreats() {
-        paddle.shrink(); // shrink the paddle
+        // paddle.shrink(); // shrink the paddle
         paddle.stopBeam(); // stop the beam
         balls.forEach(ball => {
             if (ball.magnet) ball.demagnetize;

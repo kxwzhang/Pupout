@@ -45,6 +45,25 @@ class Treats {
     }
 
     hitPaddle() {
-        if (this.y + BLOCK.height > paddle.y && this.y < paddly.y + PADDLE.height && )
+        if ((this.y > paddle.y - BLOCK.height) && 
+            (this.y < paddle.y + PADDLE.height) && 
+            (this.x > paddle.x - BLOCK.width) && 
+            (this.x < paddle.x + paddle.width)) {
+                switch (this.type) {
+                    case 'EXTRA LIFE':
+                        lives += 1;
+                        // play a sound
+                        break;
+                    case 'DOUBLE':
+                        balls[0].double();
+                        // play a sound
+                        break;
+                    case 'MAGNET':
+                        game.clearTreats();
+                        balls.forEach(ball => ball.magnetize());
+                    default:
+                        break;
+                }
+            }
     }
 }
