@@ -1,7 +1,7 @@
 // Game constants
 const CONTROLS = { W: 87, A: 65, D: 68, Q: 81, L: 76, SPACE: 32, P: 80 };
 const GAME_WIDTH = 653;
-const GAME_HEIGHT = 554; // 534
+const GAME_HEIGHT = 534; // 534 ---> CURRENT 554
 const ROWS = 30;
 const COLS = 15;
 const WALL = {

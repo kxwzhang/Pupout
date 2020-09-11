@@ -33,7 +33,7 @@ body {
     border-radius: 3px;
 }
 
-.info-container {
+#info-container {
     margin-top: 30px;
     margin-left: 30px;
     /* margin-right: auto; */
@@ -45,7 +45,7 @@ body {
     border-radius: 3px;
     /* min-width: 200px; */
     width: 20%;
-    height: 559px;
+    height: 541px;
     /* margin: auto; */
     text-align: center;
     background: lightblue;
@@ -57,7 +57,7 @@ body {
     /* margin: auto; */
     /* overflow-x: scroll; */
     text-align: center;
-    padding: 5px;
+    padding: 2px;
     font-size: 40px;
     color: rgb(43, 43, 167);
 }
@@ -65,7 +65,7 @@ body {
 #mute-music {
     outline: none;
     color: gray;
-    padding: 10px;
+    padding: 5px;
 }
 
 .muted {
@@ -123,7 +123,7 @@ body {
     display: none;
     position: absolute;
     background: rgb(58, 64, 66);
-    min-width: 160px;
+    min-width: 220px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
 }
@@ -144,7 +144,8 @@ body {
 .dropdown:hover .dropdown-content {
     border-radius: 3px;
     display: block;
-    left: -30px;
+    left: -58px;
+    bottom: 25px;
 }
 
 .dropdown:hover .dropbtn {
