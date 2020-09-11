@@ -1,6 +1,15 @@
+@media screen and (max-width: 900px) {
+  .info-container {
+    display: none;
+    /* float: none;
+    width: 100%; */
+  }
+}
+
 html {
-    /* background: rgb(29, 27, 27); */
+    background: rgb(29, 27, 27);
     height: 100%;
+    margin: auto;
 }
 
 main {
@@ -14,6 +23,8 @@ main {
 
 body {
     display: flex;
+    margin: auto;
+    justify-content: center;
 }
 
 #defaultCanvas0 {
@@ -25,6 +36,7 @@ body {
 .info-container {
     margin-top: 30px;
     margin-left: 30px;
+    /* margin-right: auto; */
     padding: 30px;
     box-sizing: border-box;
     /* display: flex;
@@ -32,18 +44,41 @@ body {
     border: 3px solid burlywood;
     border-radius: 3px;
     /* min-width: 200px; */
-    width: 100%;
+    width: 20%;
     height: 559px;
     /* margin: auto; */
     text-align: center;
     background: lightblue;
     align-content: flex-start;
+    overflow: scroll;
 }
 
 .barkanoid-title {
-    margin: auto;
+    /* margin: auto; */
+    /* overflow-x: scroll; */
+    text-align: center;
+    padding: 5px;
     font-size: 40px;
     color: rgb(43, 43, 167);
+}
+
+#mute-music {
+    outline: none;
+    color: gray;
+    padding: 10px;
+}
+
+.muted {
+    text-decoration: line-through;
+}
+
+#mute-music:hover {
+    color: white;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .fa-linkedin-in {
@@ -61,4 +96,9 @@ body {
 
 .fa-github:hover {
     color: gray;
+}
+
+.how-to-play {
+    font-size: 20px;
+    color: rgb(43, 43, 167);
 }

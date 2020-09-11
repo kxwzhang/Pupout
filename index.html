@@ -20,15 +20,55 @@
     <script src='./src/main/ball.js'></script>
     <script src="./src/main/levels.js"></script>
     <script src="./src/main/game.js"></script>
+    <audio id="background_audio" autoplay="false" loop="loop">
+        <source src="./src/assets/dolphins.mp3">
+    </audio>
+    <script>
+        function mute() {
+            const muteMusic = document.getElementById('mute-music');
+            if (muteMusic.className === 'muted') {
+                muteMusic.classList.remove('muted');
+                document.getElementById('background_audio').play();
+            } else {
+                muteMusic.classList.add('muted');
+                document.getElementById('background_audio').pause();
+            }
+        }
+    </script>
 </head>
 <body>
     <aside class='info-container'>
         <div class='barkanoid-title'>
-            <h1>Barkanoid</h1>
+            Barkanoid
         </div>
+        <button id='mute-music' class='muted' onclick="mute()">
+            Mute Music
+        </button>
+        <span>
+            <p class='info-text'>
+                Do you have what it takes to become to ultimate street pupper?
+            </p>
+            <br>
+            <p class='info-text'>
+                Play as a pupper through 5 different levels,
+                break down walls,
+                and eat some treats along the way
+                to unlock sweet abilities!
+            </p>
+            <br>
+            <p class='how-to-play'>
+                Objective:
+            </p>
+            <p>
+                The goal is to break all the blocks to advance to the next level. 
+                Each level gets progressively harder. You only have three lives,
+                so proceed with caution.
+                See how far you can get!
+            </p>
+            <br>
+        </span>
         <div>
-            SOCIALS
-            <nav>
+            <nav class='nav-links'>
                 <a href="https://www.linkedin.com/in/kevinxzhang/" target="_blank">
                     <i class="fab fa-linkedin-in"></i>
                 </a>

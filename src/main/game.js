@@ -275,7 +275,7 @@ class Game {
         text(
           'SCORE',
           GAME_WIDTH - SPACING.right + SPACING.left - 10,
-          SPACING.top + WALL.top + (2 * BLOCK.height), // 100
+          SPACING.top + WALL.top + (2 * BLOCK.height) - 30, // 100
           SPACING.right,
           (BOARD.height / 2)
         );
@@ -305,7 +305,7 @@ class Game {
         text(
           score,
           GAME_WIDTH - SPACING.right + SPACING.left - 10,
-          SPACING.top + WALL.top + (2 * BLOCK.height) + 30, // 125
+          SPACING.top + WALL.top + (2 * BLOCK.height), // 125
           SPACING.right,
           (BOARD.height / 2)
         );
@@ -335,7 +335,7 @@ class Game {
             text(
               'PAUSED',
               GAME_WIDTH - SPACING.right + SPACING.left - 10,
-              SPACING.top + WALL.top + (2 * BLOCK.height) + 90,
+              SPACING.top + WALL.top + (2 * BLOCK.height) + 420,
               SPACING.right,
               (BOARD.height / 2)
             );
@@ -344,8 +344,10 @@ class Game {
 
     displayMenu() {
         // DISPLAY MENU OPTIONS HERE
+        // stroke(255);
+        // fill(255);
         stroke(255);
-        fill(255);
+        fill(43, 43, 167);
         textSize(35);
         textAlign(CENTER);
         text(
@@ -356,6 +358,8 @@ class Game {
           (BOARD.height / 2)
         );
 
+        stroke(255);
+        fill(255);
         textSize(14);
         textAlign(CENTER);
         text(
@@ -371,14 +375,14 @@ class Game {
           GAME_HEIGHT - (15 * BLOCK.height)
         );
         text(
-          'MOVE : \'A\', \'D\'',
+          'LAUNCH BALL: \'W\'',
           SPACING.left + WALL.left + WALL.left + WALL.left + BLOCK.width - 21,
           GAME_HEIGHT - (13 * BLOCK.height)
         );
         text(
-          'LAUNCH BALL: \'W\'',
+          "MOVE : 'A', 'D'",
           SPACING.left + WALL.left + WALL.left + WALL.left + BLOCK.width - 21,
-          GAME_HEIGHT - (11 * BLOCK.height)
+          GAME_HEIGHT - 11 * BLOCK.height
         );
         text(
           'BEAM SPECIAL: \'SPACEBAR\'',
@@ -391,7 +395,7 @@ class Game {
           GAME_HEIGHT - (7 * BLOCK.height)
         );
         text(
-          'QUIT: \'Q\'',
+          'QUIT: HIT \'P\' THEN \'Q\'',
           SPACING.left + WALL.left + WALL.left + WALL.left + BLOCK.width - 21,
           GAME_HEIGHT - (5 * BLOCK.height)
         );
