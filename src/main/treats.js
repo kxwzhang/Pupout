@@ -61,6 +61,11 @@ class Treats {
                     case 'MAGNET':
                         game.clearTreats();
                         balls.forEach(ball => ball.magnetize());
+                        break;
+                    case 'BEAM':
+                        game.clearTreats();
+                        paddle.startBeam();
+                        break;
                     default:
                         break;
                 }

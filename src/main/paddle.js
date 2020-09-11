@@ -63,6 +63,13 @@ class Paddle {
     }
 
     // ADD BEAM FUNCTION
+    startBeam() {
+
+    }
+
     // REMOVE BEAM FUNCTION
+    stopBeam() {
+
+    }
     // ADD ABILITY TO FIRE BEAM ON BUTTON PRESS
 }
