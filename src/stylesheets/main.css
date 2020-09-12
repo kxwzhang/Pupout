@@ -56,7 +56,9 @@ body {
 .barkanoid-title {
     /* margin: auto; */
     /* overflow-x: scroll; */
-    text-align: center;
+    /* text-align: center; */
+    display: flex;
+    justify-content: center;
     padding: 2px;
     font-size: 40px;
     color: rgb(43, 43, 167);

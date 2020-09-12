@@ -43,7 +43,7 @@ class Ball {
       }
 
       // Check Block collision
-      for (let i = blocks.length - 1; i > -1; i--) {
+      for (let i = 0; i < blocks.length; i++) {
         let action = ballInterceptBlock(this, blocks[i]);
         if (action) {
           this.hitBlock(action);
@@ -104,7 +104,7 @@ class Ball {
   }
 
   hitPaddle(action) {
-    console.log("hitPaddle action ", action);
+    // console.log("hitPaddle action ", action);
     switch (action.dir) {
       case "TOP":
         this.y = action.y;

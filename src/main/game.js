@@ -101,7 +101,7 @@ class Game {
       // 1. should first update the paddle
       paddle.update();
       // 2. iterate through the balls and update them
-      for (let i = balls.length - 1; i > -1; i--) {
+      for (let i = 0; i < balls.length; i++) {
         balls[i].update();
         if (balls[i].destroyed()) {
           balls.splice(i, 1);
@@ -120,7 +120,7 @@ class Game {
         }
       }
       // 3. iterate through the treats and update them
-      for (let i = treats.length - 1; i > -1; i--) {
+      for (let i = 0; i < treats.length; i++) {
         treats[i].update();
         if (treats[i].hitPaddle()) {
           treats.splice(i, 1);
