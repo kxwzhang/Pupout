@@ -5,6 +5,6 @@ class Beam {
   }
 
   update() {
-    
+    this.y -= 1;
   }
 }
