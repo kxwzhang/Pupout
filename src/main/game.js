@@ -1,83 +1,3 @@
-// Game constants
-const CONTROLS = { W: 87, A: 65, D: 68, Q: 81, L: 76, SPACE: 32, P: 80 };
-const GAME_WIDTH = 653;
-const GAME_HEIGHT = 534; // 534 ---> CURRENT 554
-const ROWS = 30;
-const COLS = 15;
-const WALL = {
-    top: 14, right: 5, left: 5
-};
-const BOARD = {
-    width: 455, height: 520
-};
-const SPACING = {
-    top: 14, right: 158, left: 42
-};
-const PADDLE = {
-    width: 60, height: 40
-};
-const BLOCK = {
-    width: 29, height: 14
-};
-const BALL_RADIUS = 8;
-
-// Game status
-let options;
-let paused;
-let stopped;
-
-// Game values
-let paddle;
-let balls;
-let blocks;
-let treats;
-let beams;
-let score;
-let lives;
-let level;
-let numFrames;
-
-// Canvas Setup
-function setup() {
-    createCanvas(GAME_WIDTH, GAME_HEIGHT);
-    game = new Game();
-    game.initialize();
-}
-
-// p5 draw
-function draw() {
-    game.update();
-    game.show();
-}
-// p5 keyPressed handling game controls
-function keyPressed() {
-  if (!options) {
-    if (keyCode === CONTROLS.P) {
-      paused = !paused;
-    }
-    if (keyCode === CONTROLS.W && !paused) {
-      balls.forEach((ball) => {
-        if (!ball.moving) ball.launch();
-      });
-    }
-    if (keyCode === CONTROLS.SPACE && !paused) {
-      paddle.fire();
-    }
-    if (paused && keyCode === CONTROLS.Q) {
-      game.initialize();
-    }
-  }
-  if (options) {
-    if (keyCode === CONTROLS.L) {
-      game.switchLevel();
-    }
-    if (keyCode === ENTER) {
-      game.startGame();
-    }
-  }
-  return false;
-}
-
 // Game Class
 class Game {
   initialize() {
@@ -112,7 +32,7 @@ class Game {
             if (lives > 0) {
               // Play sound
               balls.push(new Ball());
-              this.displayMessage("\n\n\nPUPPER READY FOR ACTION", 100, "f");
+              this.displayMessage("\n\n\nPUPPER READY FOR ACTION", 100, true);
             } else {
               game.handleGameOver();
             }
@@ -124,7 +44,7 @@ class Game {
         treats[i].update();
         if (treats[i].hitPaddle()) {
           treats.splice(i, 1);
-          console.log(treats);
+          // console.log(treats);
         }
       }
       // 4. iterate through the beams and update them
@@ -140,7 +60,7 @@ class Game {
     }
     numFrames += 1;
     if (numFrames === 0) {
-      console.log("numFrames", numFrames);
+      // console.log("numFrames", numFrames);
       stopped = false;
     }
   }
@@ -178,7 +98,7 @@ class Game {
         }
       }
     }
-    let message = "LEVEL " + level + "\nGET READY PUPPER";
+    let message = "LEVEL " + level + "\nPUPPER UP";
     // display message
     // debugger
     this.displayMessage(message, 150);
@@ -401,7 +321,7 @@ class Game {
     textSize(35);
     textAlign(CENTER);
     text(
-      "BARKANOID",
+      "PUPOUT",
       SPACING.left + WALL.left,
       SPACING.top + WALL.top + 2 * BLOCK.height,
       BOARD.width - WALL.left - WALL.right,
@@ -419,38 +339,38 @@ class Game {
     );
 
     textAlign(LEFT);
+    // text(
+    //   "KEYBOARD CONTROLS: ",
+    //   SPACING.left + WALL.left + WALL.left + 11,
+    //   GAME_HEIGHT - 15 * BLOCK.height
+    // );
     text(
-      "CONTROLS: ",
-      SPACING.left + WALL.left + WALL.left + 11,
-      GAME_HEIGHT - 15 * BLOCK.height
-    );
-    text(
-      "LAUNCH BALL: 'W'",
+      "LAUNCH BALL: W",
       SPACING.left + WALL.left + WALL.left + WALL.left + BLOCK.width - 21,
       GAME_HEIGHT - 13 * BLOCK.height
     );
     text(
-      "MOVE : 'A', 'D'",
+      "MOVE : A, D",
       SPACING.left + WALL.left + WALL.left + WALL.left + BLOCK.width - 21,
       GAME_HEIGHT - 11 * BLOCK.height
     );
     text(
-      "BEAM SPECIAL: 'SPACEBAR'",
+      "BEAM ATTACK: SPACEBAR",
       SPACING.left + WALL.left + WALL.left + WALL.left + BLOCK.width - 21,
       GAME_HEIGHT - 9 * BLOCK.height
     );
     text(
-      "PAUSE: 'P'",
+      "PICK A LEVEL: L",
       SPACING.left + WALL.left + WALL.left + WALL.left + BLOCK.width - 21,
       GAME_HEIGHT - 7 * BLOCK.height
     );
     text(
-      "QUIT: HIT 'P' THEN 'Q'",
+      "PAUSE: P",
       SPACING.left + WALL.left + WALL.left + WALL.left + BLOCK.width - 21,
       GAME_HEIGHT - 5 * BLOCK.height
     );
     text(
-      "PICK A LEVEL: 'L'",
+      "QUIT: HIT P THEN Q",
       SPACING.left + WALL.left + WALL.left + WALL.left + BLOCK.width - 21,
       GAME_HEIGHT - 3 * BLOCK.height
     );
@@ -458,7 +378,7 @@ class Game {
     fill(255, 255, 0);
     textAlign(CENTER);
     text(
-      "HIT 'ENTER' TO START THE BALL GAME!",
+      "HIT ENTER TO START THE PUPOUT!",
       SPACING.left + WALL.left,
       SPACING.top + WALL.top + 2 * BLOCK.height + 200,
       BOARD.width - WALL.left - WALL.right,

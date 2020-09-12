@@ -40,7 +40,7 @@ function ballInterceptPaddle(ball) {
           paddle.y - BALL_RADIUS,
           paddle.x + paddle.with + BALL_RADIUS,
           paddle.y,
-          'TOP_RIGHT'
+          'TOP RIGHT'
         );
     }
     if (!action && ball.dx < 0) {
@@ -66,7 +66,7 @@ function ballInterceptPaddle(ball) {
           paddle.y - BALL_RADIUS,
           paddle.x - BALL_RADIUS,
           paddle.y,
-          'TOP_LEFT'
+          'TOP LEFT'
         );
     }
     if (!action && ball.dx > 0) {

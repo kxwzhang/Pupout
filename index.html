@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Barkanoid</title>
+    <title>Pupout</title>
     <link 
         rel="stylesheet" 
         href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="./src/stylesheets/reset.css">
     <link rel="stylesheet" href="./src/stylesheets/main.css">
     <script src="./src/main/p5/p5.min.js" type="text/javascript"></script>
+    <script src='./src/main/variables.js'></script>
+    <script src='./src/main/canvas.js'></script>
     <script src='./src/main/preload.js'></script>
     <script src='./src/main/helper.js'></script>
     <script src='./src/main/block.js'></script>
@@ -39,8 +41,8 @@
 </head>
 <body>
     <aside id='info-container'>
-        <div class='barkanoid-title'>
-            <h1>Barkanoid</h1>
+        <div class='pupout-title'>
+            <h1>Pupout</h1>
         </div>
         <button id='mute-music' class='muted' onclick="mute()">
             Mute Music
@@ -62,8 +64,8 @@
             </p>
             <p>
                 Advance to the next level by breaking all the blocks. 
-                Each level gets progressively harder. You only have three lives,
-                so proceed with caution!
+                Headbutt the ball, but be careful because you only have three lives.
+                Each level gets progressively harder, so proceed with caution!
             </p>
             <br>
         </span>
@@ -72,7 +74,7 @@
                 <a href="https://www.linkedin.com/in/kevinxzhang/" target="_blank">
                     <i class="fab fa-linkedin-in"></i>
                 </a>
-                <a href="https://github.com/kxwzhang/Barkanoid" target="_blank">
+                <a href="https://github.com/kxwzhang/Pupout" target="_blank">
                     <i class="fab fa-github"></i>
                 </a>
             </nav>

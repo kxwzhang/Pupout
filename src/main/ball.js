@@ -110,14 +110,16 @@ class Ball {
         this.y = action.y;
         this.dy *= -1;
         break;
-      case "TOP_RIGHT":
-      case "TOP_LEFT":
+      case "TOP RIGHT":
+        break;
+      case "TOP LEFT":
         this.x = action.x;
         this.dx *= -1;
         this.y = action.y;
         this.dy *= -1;
         break;
       case "RIGHT":
+        break;
       case "LEFT":
         this.x = action.x;
         this.dx *= -1;
@@ -130,7 +132,7 @@ class Ball {
   }
 
   hitBlock(action) {
-    console.log("hitBlock action ", action);
+    // console.log("hitBlock action ", action);
     switch (action.dir) {
       case "TOP":
       case "BOTTOM":

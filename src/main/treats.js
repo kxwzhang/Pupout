@@ -18,7 +18,7 @@ class Treats {
   }
 
   update() {
-    // make the treat fall
+    // makes the treat fall
     this.y += 1;
   }
 
