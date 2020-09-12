@@ -1,5 +1,9 @@
 // Game Class
 class Game {
+  constructor() {
+    this.initialize();
+  }
+
   initialize() {
     // PlaySound
     options = true;
@@ -207,35 +211,35 @@ class Game {
     textAlign(LEFT);
     text(
       "SCORE",
-      GAME_WIDTH - SPACING.right + SPACING.left - 10,
+      GAME_WIDTH - SPACING.right + SPACING.left - 20,
       SPACING.top + WALL.top + 2 * BLOCK.height - 30, // 100
       SPACING.right,
       BOARD.height / 2
     );
     text(
       "TREATS",
-      GAME_WIDTH - SPACING.right + SPACING.left - 10,
+      GAME_WIDTH - SPACING.right + SPACING.left - 20,
       SPACING.top + WALL.top + 2 * BLOCK.height + 50, // 100
       SPACING.right,
       BOARD.height / 2
     );
     text(
       "BALLS",
-      GAME_WIDTH - SPACING.right + SPACING.left - 10,
+      GAME_WIDTH - SPACING.right + SPACING.left - 20,
       SPACING.top + WALL.top + 2 * BLOCK.height + 175,
       SPACING.right,
       BOARD.height / 2
     );
     image(
       spriteTennisball,
-      GAME_WIDTH - SPACING.right + 92 + SPACING.left - 10,
+      GAME_WIDTH - SPACING.right + 92 + SPACING.left - 20,
       SPACING.top + WALL.top + 2 * BLOCK.height + 178,
       20,
       20
     );
     text(
       "LEVEL",
-      GAME_WIDTH - SPACING.right + SPACING.left - 10,
+      GAME_WIDTH - SPACING.right + SPACING.left - 20,
       SPACING.top + WALL.top + 2 * BLOCK.height + 300,
       SPACING.right,
       BOARD.height / 2
@@ -244,7 +248,7 @@ class Game {
     fill(30, 144, 255);
     text(
       score,
-      GAME_WIDTH - SPACING.right + SPACING.left - 10,
+      GAME_WIDTH - SPACING.right + SPACING.left - 20,
       SPACING.top + WALL.top + 2 * BLOCK.height, // 125
       SPACING.right,
       BOARD.height / 2
@@ -254,17 +258,44 @@ class Game {
       fill(50, 205, 50);
       text(
         treats[treats.length - 1].type,
-        GAME_WIDTH - SPACING.right + SPACING.left - 10,
+        GAME_WIDTH - SPACING.right + SPACING.left - 20,
         SPACING.top + WALL.top + 2 * BLOCK.height + 80, // 125
         SPACING.right,
         BOARD.height / 2
       );
+      // let treatsType;
+      // switch (treats[treats.length - 1].type) {
+      //   case "EXTRA LIFE":
+      //     treatsType = image(spriteXLife);
+      //     break;
+      //   case "DOUBLE":
+      //     treatsType = image(spriteDouble);
+      //     break;
+      //   case "MAGNET":
+      //     treatsType = image(spriteMagnet);
+      //     break;
+      //   case "BEAM":
+      //     treatsType = image(spriteBeamPot);
+      //     break;
+      //   case "DROP PARTY":
+      //     treatsType = image(spriteDropParty);
+      //     break;
+      //   default:
+      //     break;
+      // }
+      // image(
+      //   treatsType,
+      //   GAME_WIDTH - SPACING.right + SPACING.left - 10,
+      //   SPACING.top + WALL.top + 2 * BLOCK.height + 100,
+      //   SPACING.right,
+      //   BOARD.height / 2
+      // );
     } else {
       stroke(188, 25, 0);
       fill(188, 25, 0);
       text(
         "NONE",
-        GAME_WIDTH - SPACING.right + SPACING.left - 10,
+        GAME_WIDTH - SPACING.right + SPACING.left - 20,
         SPACING.top + WALL.top + 2 * BLOCK.height + 80, // 125
         SPACING.right,
         BOARD.height / 2
@@ -281,14 +312,14 @@ class Game {
     fill(255);
     text(
       lives,
-      GAME_WIDTH - SPACING.right + SPACING.left - 10,
+      GAME_WIDTH - SPACING.right + SPACING.left - 20,
       SPACING.top + WALL.top + 2 * BLOCK.height + 205,
       SPACING.right,
       BOARD.height / 2
     );
     text(
       level,
-      GAME_WIDTH - SPACING.right + SPACING.left - 10,
+      GAME_WIDTH - SPACING.right + SPACING.left - 20,
       SPACING.top + WALL.top + 2 * BLOCK.height + 330,
       SPACING.right,
       BOARD.height / 2
@@ -301,14 +332,22 @@ class Game {
       stroke(188, 25, 0);
       fill(188, 25, 0);
       textSize(28);
-      textAlign(LEFT);
+      // textAlign(LEFT);
+      textAlign(CENTER);
       text(
         "PAUSED",
-        GAME_WIDTH - SPACING.right + SPACING.left - 10,
-        SPACING.top + WALL.top + 2 * BLOCK.height + 420,
-        SPACING.right,
-        BOARD.height / 2
+        SPACING.left,
+        SPACING.top + WALL.top + 2 * BLOCK.height + 220,
+        BOARD.width,
+        (BOARD.height / 2)
       );
+      // text(
+      //   "PAUSED",
+      //   GAME_WIDTH - SPACING.right + SPACING.left - 10,
+      //   SPACING.top + WALL.top + 2 * BLOCK.height + 420,
+      //   SPACING.right,
+      //   (BOARD.height / 2)
+      // );
     }
   }
 
@@ -335,7 +374,7 @@ class Game {
     text(
       "GAMEPLAY INFO",
       SPACING.left + WALL.left + 210,
-      GAME_HEIGHT - 17 * BLOCK.height
+      GAME_HEIGHT - 17 * BLOCK.height + 20
     );
 
     textAlign(LEFT);
@@ -352,30 +391,116 @@ class Game {
     text(
       "MOVE : A, D",
       SPACING.left + WALL.left + WALL.left + WALL.left + BLOCK.width - 21,
-      GAME_HEIGHT - 11 * BLOCK.height
+      GAME_HEIGHT - 11 * BLOCK.height + 5
     );
     text(
       "BEAM ATTACK: SPACEBAR",
       SPACING.left + WALL.left + WALL.left + WALL.left + BLOCK.width - 21,
-      GAME_HEIGHT - 9 * BLOCK.height
+      GAME_HEIGHT - 9 * BLOCK.height + 10
     );
     text(
       "PICK A LEVEL: L",
       SPACING.left + WALL.left + WALL.left + WALL.left + BLOCK.width - 21,
-      GAME_HEIGHT - 7 * BLOCK.height
+      GAME_HEIGHT - 7 * BLOCK.height + 15
     );
     text(
       "PAUSE: P",
       SPACING.left + WALL.left + WALL.left + WALL.left + BLOCK.width - 21,
-      GAME_HEIGHT - 5 * BLOCK.height
+      GAME_HEIGHT - 5 * BLOCK.height + 20
     );
     text(
       "QUIT: HIT P THEN Q",
       SPACING.left + WALL.left + WALL.left + WALL.left + BLOCK.width - 21,
+      GAME_HEIGHT - 3 * BLOCK.height + 25
+    );
+
+    image(
+      spriteXLife,
+      SPACING.left + WALL.left + WALL.left + WALL.left + BLOCK.width + 240,
+      GAME_HEIGHT - 13 * BLOCK.height - 15,
+      20,
+      20
+    )
+    stroke(220, 20, 60);
+    fill(220, 20, 60);
+    text(
+      "EXTRA LIFE",
+      SPACING.left + WALL.left + WALL.left + WALL.left + BLOCK.width + 270,
+      GAME_HEIGHT - 13 * BLOCK.height
+    );
+    image(
+      spriteDouble,
+      SPACING.left + WALL.left + WALL.left + WALL.left + BLOCK.width + 240,
+      GAME_HEIGHT - 11 * BLOCK.height - 15,
+      20,
+      20
+    )
+    stroke(189,183,107);
+    fill(189,183,107);
+    text(
+      "DOUBLE BALL",
+      SPACING.left + WALL.left + WALL.left + WALL.left + BLOCK.width + 270,
+      GAME_HEIGHT - 11 * BLOCK.height
+    );
+    image(
+      spriteMagnet,
+      SPACING.left + WALL.left + WALL.left + WALL.left + BLOCK.width + 240,
+      GAME_HEIGHT - 9 * BLOCK.height - 15,
+      20,
+      20
+    )
+    stroke(64, 224, 208);
+    fill(64, 224, 208);
+    text(
+      "MAGNET",
+      SPACING.left + WALL.left + WALL.left + WALL.left + BLOCK.width + 270,
+      GAME_HEIGHT - 9 * BLOCK.height
+    );
+    image(
+      spriteBeamPot,
+      SPACING.left + WALL.left + WALL.left + WALL.left + BLOCK.width + 240,
+      GAME_HEIGHT - 7 * BLOCK.height - 15,
+      20,
+      20
+    )
+    stroke(0, 0, 205);
+    fill(0, 0, 205);
+    text(
+      "BEAM ATTACK",
+      SPACING.left + WALL.left + WALL.left + WALL.left + BLOCK.width + 270,
+      GAME_HEIGHT - 7 * BLOCK.height
+    );
+    image(
+      spriteDropParty,
+      SPACING.left + WALL.left + WALL.left + WALL.left + BLOCK.width + 240,
+      GAME_HEIGHT - 5 * BLOCK.height - 15,
+      20,
+      20
+    )
+    stroke(238, 130, 238);
+    fill(238, 130, 238);
+    text(
+      "DROP PARTY",
+      SPACING.left + WALL.left + WALL.left + WALL.left + BLOCK.width + 270,
+      GAME_HEIGHT - 5 * BLOCK.height
+    );
+    image(
+      spriteBlock1,
+      SPACING.left + WALL.left + WALL.left + WALL.left + BLOCK.width + 240,
+      GAME_HEIGHT - 3 * BLOCK.height - 15,
+      20,
+      20
+    )
+    stroke(255, 215, 0);
+    fill(255, 215, 0);
+    text(
+      "UNBREAKABLE",
+      SPACING.left + WALL.left + WALL.left + WALL.left + BLOCK.width + 270,
       GAME_HEIGHT - 3 * BLOCK.height
     );
-    stroke(255, 55, 0);
-    fill(255, 255, 0);
+
+    stroke(255, 215, 0);
+    fill(255, 215, 0);
     textAlign(CENTER);
     text(
       "HIT ENTER TO START THE PUPOUT!",
