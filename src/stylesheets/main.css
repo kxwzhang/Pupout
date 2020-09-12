@@ -1,5 +1,5 @@
 @media screen and (max-width: 900px) {
-  .info-container {
+  #info-container {
     display: none;
     /* float: none;
     width: 100%; */
@@ -33,7 +33,7 @@ body {
     border-radius: 3px;
 }
 
-.info-container {
+#info-container {
     margin-top: 30px;
     margin-left: 30px;
     /* margin-right: auto; */
@@ -45,7 +45,7 @@ body {
     border-radius: 3px;
     /* min-width: 200px; */
     width: 20%;
-    height: 559px;
+    height: 541px;
     /* margin: auto; */
     text-align: center;
     background: lightblue;
@@ -56,8 +56,10 @@ body {
 .barkanoid-title {
     /* margin: auto; */
     /* overflow-x: scroll; */
-    text-align: center;
-    padding: 5px;
+    /* text-align: center; */
+    display: flex;
+    justify-content: center;
+    padding: 2px;
     font-size: 40px;
     color: rgb(43, 43, 167);
 }
@@ -65,7 +67,7 @@ body {
 #mute-music {
     outline: none;
     color: gray;
-    padding: 10px;
+    padding: 5px;
 }
 
 .muted {
@@ -98,7 +100,56 @@ body {
     color: gray;
 }
 
-.how-to-play {
+.objective {
     font-size: 20px;
     color: rgb(43, 43, 167);
+}
+
+.dropbtn {
+    border-radius: 3px;
+    background: transparent;
+    color: black;
+    padding: 3px;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    padding-top: 20px;
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background: rgb(58, 64, 66);
+    min-width: 220px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background: white;
+    color: black;
+}
+
+.dropdown:hover .dropdown-content {
+    border-radius: 3px;
+    display: block;
+    left: -58px;
+    bottom: 25px;
+}
+
+.dropdown:hover .dropbtn {
+    color: white;
 }

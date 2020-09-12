@@ -18,6 +18,7 @@
     <script src='./src/main/block.js'></script>
     <script src='./src/main/paddle.js'></script>
     <script src='./src/main/ball.js'></script>
+    <script src='./src/main/treats.js'></script>
     <script src="./src/main/levels.js"></script>
     <script src="./src/main/game.js"></script>
     <audio id="background_audio" autoplay="false" loop="loop">
@@ -37,9 +38,9 @@
     </script>
 </head>
 <body>
-    <aside class='info-container'>
+    <aside id='info-container'>
         <div class='barkanoid-title'>
-            Barkanoid
+            <h1>Barkanoid</h1>
         </div>
         <button id='mute-music' class='muted' onclick="mute()">
             Mute Music
@@ -56,14 +57,13 @@
                 to unlock sweet abilities!
             </p>
             <br>
-            <p class='how-to-play'>
+            <p class='objective'>
                 Objective:
             </p>
             <p>
-                The goal is to break all the blocks to advance to the next level. 
+                Advance to the next level by breaking all the blocks. 
                 Each level gets progressively harder. You only have three lives,
-                so proceed with caution.
-                See how far you can get!
+                so proceed with caution!
             </p>
             <br>
         </span>
@@ -76,6 +76,26 @@
                     <i class="fab fa-github"></i>
                 </a>
             </nav>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">Attribution Links</button>
+            <div class="dropdown-content">
+                <a 
+                    href="http://dig.ccmixter.org/files/septahelix/59235"
+                    target="_blank">
+                    Music: Dolphins by Septahelix
+                </a>
+                <a 
+                    href="https://opengameart.org/content/cat-dog-free-sprites"
+                    target="_blank" >
+                    Dog sprites by pzUH
+                </a>
+                <a 
+                    href="https://broccolibusiness.itch.io/basic-items"
+                    target="_blank">
+                    Powerup treat sprites by Broccoli
+                </a>
+            </div>
         </div>
     </asidv>
 </body>
