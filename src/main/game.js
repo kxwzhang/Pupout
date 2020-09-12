@@ -44,7 +44,7 @@ class Game {
         treats[i].update();
         if (treats[i].hitPaddle()) {
           treats.splice(i, 1);
-          console.log(treats);
+          // console.log(treats);
         }
       }
       // 4. iterate through the beams and update them
@@ -60,7 +60,7 @@ class Game {
     }
     numFrames += 1;
     if (numFrames === 0) {
-      console.log("numFrames", numFrames);
+      // console.log("numFrames", numFrames);
       stopped = false;
     }
   }
@@ -339,11 +339,11 @@ class Game {
     );
 
     textAlign(LEFT);
-    text(
-      "KEYBOARD CONTROLS: ",
-      SPACING.left + WALL.left + WALL.left + 11,
-      GAME_HEIGHT - 15 * BLOCK.height
-    );
+    // text(
+    //   "KEYBOARD CONTROLS: ",
+    //   SPACING.left + WALL.left + WALL.left + 11,
+    //   GAME_HEIGHT - 15 * BLOCK.height
+    // );
     text(
       "LAUNCH BALL: W",
       SPACING.left + WALL.left + WALL.left + WALL.left + BLOCK.width - 21,

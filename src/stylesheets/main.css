@@ -36,17 +36,12 @@ body {
 #info-container {
     margin-top: 30px;
     margin-left: 30px;
-    /* margin-right: auto; */
     padding: 30px;
     box-sizing: border-box;
-    /* display: flex;
-    flex-direction: column; */
     border: 3px solid burlywood;
     border-radius: 3px;
-    /* min-width: 200px; */
     width: 20%;
     height: 541px;
-    /* margin: auto; */
     text-align: center;
     background: lightblue;
     align-content: flex-start;
@@ -54,9 +49,6 @@ body {
 }
 
 .pupout-title {
-    /* margin: auto; */
-    /* overflow-x: scroll; */
-    /* text-align: center; */
     display: flex;
     justify-content: center;
     padding: 2px;
@@ -130,7 +122,6 @@ body {
     z-index: 1;
 }
 
-/* Links inside the dropdown */
 .dropdown-content a {
     color: white;
     padding: 12px 16px;
