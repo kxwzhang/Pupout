@@ -7,4 +7,8 @@ class Beam {
   update() {
     this.y -= 1;
   }
+
+  show() {
+    image(spriteBlueBeam, this.x. this.y, 5, 10);
+  }
 }

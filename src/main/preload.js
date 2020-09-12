@@ -16,4 +16,5 @@ function preload() {
   spriteMagnet = loadImage("src/assets/tile008.png");
   spriteBeamPot = loadImage("src/assets/tile006.png");
   spriteDropParty = loadImage("src/assets/tile010.png");
+  spriteBlueBeam = loadImage("src/assets/Blue-Beam.png");
 }

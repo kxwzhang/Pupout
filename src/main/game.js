@@ -374,7 +374,7 @@ class Game {
     text(
       "GAMEPLAY INFO",
       SPACING.left + WALL.left + 210,
-      GAME_HEIGHT - 17 * BLOCK.height
+      GAME_HEIGHT - 17 * BLOCK.height + 20
     );
 
     textAlign(LEFT);
