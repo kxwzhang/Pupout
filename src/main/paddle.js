@@ -5,7 +5,6 @@ class Paddle {
     this.y = GAME_HEIGHT - 4 * BLOCK.height;
     this.onCD = false;
     this.cooldown = 30;
-    this.supersized = false;
     this.beam = false;
     this.frame;
   }
@@ -43,19 +42,6 @@ class Paddle {
     //     this.y,
     //     this.width,
     //     PADDLE.height);
-  }
-
-  supersize() {
-    // MAKE PADDLE BIGGER
-    // IF WE ARE SUPERSIZED:
-    // RENDER SUPERSIZED
-    // IF WE ARE ON A POWERUP
-    // RENDER POWERUP PADDLES
-    // ELSE REVERT SIZE
-  }
-
-  shrink() {
-    // MAKE PADDLE SMALLER
   }
 
   // ADD BEAM FUNCTION

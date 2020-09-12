@@ -110,8 +110,8 @@ class Ball {
         this.y = action.y;
         this.dy *= -1;
         break;
-      case "TOP_RIGHT":
-      case "TOP_LEFT":
+      case "TOP RIGHT":
+      case "TOP LEFT":
         this.x = action.x;
         this.dx *= -1;
         this.y = action.y;

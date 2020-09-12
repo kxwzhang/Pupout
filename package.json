@@ -1,5 +1,5 @@
 {
-  "name": "Barkanoid",
+  "name": "Pupout",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kxwzhang/Barkanoid.git"
+    "url": "git+https://github.com/kxwzhang/Pupout.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/kxwzhang/Barkanoid/issues"
+    "url": "https://github.com/kxwzhang/Pupout/issues"
   },
-  "homepage": "https://github.com/kxwzhang/Barkanoid#readme",
+  "homepage": "https://github.com/kxwzhang/Pupout#readme",
   "dependencies": {
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12"
