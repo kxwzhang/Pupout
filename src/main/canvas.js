@@ -2,7 +2,6 @@
 function setup() {
   createCanvas(GAME_WIDTH, GAME_HEIGHT);
   game = new Game();
-  game.initialize();
 }
 
 // p5 draw
@@ -21,7 +20,8 @@ function keyPressed() {
       });
     } else if (keyCode === CONTROLS.SPACE && !paused) {
       paddle.fire();
-    } else if (paused && keyCode === CONTROLS.Q) {
+    } 
+    if (paused && keyCode === CONTROLS.Q) {
       game.initialize();
     }
   }

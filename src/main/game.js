@@ -1,5 +1,9 @@
 // Game Class
 class Game {
+  constructor() {
+    this.initialize();
+  }
+  
   initialize() {
     // PlaySound
     options = true;
@@ -301,14 +305,22 @@ class Game {
       stroke(188, 25, 0);
       fill(188, 25, 0);
       textSize(28);
-      textAlign(LEFT);
+      // textAlign(LEFT);
+      textAlign(CENTER);
       text(
         "PAUSED",
-        GAME_WIDTH - SPACING.right + SPACING.left - 10,
-        SPACING.top + WALL.top + 2 * BLOCK.height + 420,
-        SPACING.right,
-        BOARD.height / 2
+        SPACING.left,
+        SPACING.top + WALL.top + 2 * BLOCK.height + 220,
+        BOARD.width,
+        (BOARD.height / 2)
       );
+      // text(
+      //   "PAUSED",
+      //   GAME_WIDTH - SPACING.right + SPACING.left - 10,
+      //   SPACING.top + WALL.top + 2 * BLOCK.height + 420,
+      //   SPACING.right,
+      //   (BOARD.height / 2)
+      // );
     }
   }
 
