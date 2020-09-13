@@ -538,5 +538,6 @@ class Game {
   handleGameOver() {
     new Game();
     this.displayMessage("WOOF, GAME OVER!", 150);
+    // Invoke click on highscores tab
   }
 }
