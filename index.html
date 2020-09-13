@@ -41,73 +41,75 @@
 </head>
 <body>
     <aside id='info-container'>
-        <div class='pupout-title'>
-            <h1>Pupout</h1>
+        <div class='tab-links'>
+            <button onclick='openTab(e, "pupout-tab")' id='default' class='tab-btn'>Pupout</button>
+            <button onclick='openTab(e, "highscore-tab")' id='switch' class='tab-btn'>Highscores</button>
         </div>
-        <button id='mute-music' class='muted' onclick="mute()">
-            Mute Music
-        </button>
-        <span>
-            <p class='info-text'>
-                Do you have what it takes to become to ultimate street pupper?
-            </p>
-            <br>
-            <p class='info-text'>
-                Play as a pupper through 5 different levels,
-                break down walls,
-                and eat some treats along the way
-                to unlock sweet abilities!
-            </p>
-            <br>
-            <p class='objective'>
-                Objective:
-            </p>
-            <p>
-                Advance to the next level by breaking all the blocks. 
-                Headbutt the ball, but be careful because you only have three lives.
-                Each level gets progressively harder, so proceed with caution!
-            </p>
-            <br>
-        </span>
-        <div>
-            <nav class='nav-links'>
-                <a href="https://www.linkedin.com/in/kevinxzhang/" target="_blank">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-                <a href="https://github.com/kxwzhang/Pupout" target="_blank">
-                    <i class="fab fa-github"></i>
-                </a>
-            </nav>
-        </div>
-        <div class="dropdown">
-            <button class="dropbtn">Attribution Links</button>
-            <div class="dropdown-content">
-                <a 
-                    href="http://dig.ccmixter.org/files/septahelix/59235"
-                    target="_blank">
-                    Music: Dolphins by Septahelix
-                </a>
-                <a 
-                    href="https://opengameart.org/content/cat-dog-free-sprites"
-                    target="_blank" >
-                    Dog sprites by pzUH
-                </a>
-                <a 
-                    href="https://broccolibusiness.itch.io/basic-items"
-                    target="_blank">
-                    Powerup treat sprites by Broccoli
-                </a>
-                <a 
-                    href="https://opengameart.org/content/lasers-and-beams"
-                    target="_blank">
-                    Beam sprite by Rawdanitsu
-                </a>
+        <div id='pupout-tab' class='tabs-info'>
+            <div class='pupout-title'>
+                <h1>Pupout</h1>
+            </div>
+            <button id='mute-music' class='muted' onclick="mute()">
+                Mute Music
+            </button>
+            <span>
+                <p class='info-text'>
+                    Do you have what it takes to become to ultimate street pupper?
+                </p>
+                <br>
+                <p class='info-text'>
+                    Play as a pupper through 5 different levels,
+                    break down walls,
+                    and eat some treats along the way
+                    to unlock sweet abilities!
+                </p>
+                <br>
+                <p class='objective'>
+                    Objective:
+                </p>
+                <p>
+                    Advance to the next level by breaking all the blocks.
+                    Headbutt the ball, but be careful because you only have three lives.
+                    Each level gets progressively harder, so proceed with caution!
+                </p>
+                <br>
+            </span>
+            <div>
+                <nav class='nav-links'>
+                    <a href="https://www.linkedin.com/in/kevinxzhang/" target="_blank">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com/kxwzhang/Pupout" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </nav>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">Attribution Links</button>
+                <div class="dropdown-content">
+                    <a href="http://dig.ccmixter.org/files/septahelix/59235" target="_blank">
+                        Music: Dolphins by Septahelix
+                    </a>
+                    <a href="https://opengameart.org/content/cat-dog-free-sprites" target="_blank">
+                        Dog sprites by pzUH
+                    </a>
+                    <a href="https://broccolibusiness.itch.io/basic-items" target="_blank">
+                        Powerup treat sprites by Broccoli
+                    </a>
+                    <a href="https://opengameart.org/content/lasers-and-beams" target="_blank">
+                        Beam sprite by Rawdanitsu
+                    </a>
+                </div>
             </div>
         </div>
-    </asidv>
+        <div id='highscore-tab' class='tabs-info'>
+            
+        </div>
+    </aside>
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-firestore.js"></script>
     
     <!-- TODO: Add SDKs for Firebase products that you want to use
          https://firebase.google.com/docs/web/setup#available-libraries -->
@@ -126,5 +128,6 @@
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
     </script>
+    <script src="./src/main/sidebar.js"></script>
 </body>
 </html>
