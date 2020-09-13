@@ -42,8 +42,8 @@
 <body>
     <aside id='info-container'>
         <div class='tab-links'>
-            <button onclick='openTab(e, "pupout-tab")' id='default' class='tab-btn'>Pupout</button>
-            <button onclick='openTab(e, "highscore-tab")' id='switch' class='tab-btn'>Highscores</button>
+            <button onclick='openTab(event, "pupout-tab")' id='default' class='tab-btn'>Pupout</button>
+            <button onclick='openTab(event, "highscore-tab")' id='switch' class='tab-btn'>Highscores</button>
         </div>
         <div id='pupout-tab' class='tabs-info'>
             <div class='pupout-title'>
@@ -103,7 +103,23 @@
             </div>
         </div>
         <div id='highscore-tab' class='tabs-info'>
-            
+            <form onsubmit='handleSubmitScore()' class='highscore-form'>
+                <label>Enter your name for highscore!</label>
+                <div class='submit-container'>
+                    <label>Name:
+                        <input type="text" class='input-text'>
+                    </label>
+                    <button class='submit-btn'>Submit</button>
+                </div>
+            </form>
+            <div class='score-container'>
+                <label class='score-titles'>#</label>    
+                <label class='score-titles'>Name</label>
+                <label class='score-titles'>Score</label>
+            </div>
+            <div class='score-details'></div>
+            <div class='score-details'></div>
+            <div class='score-details'></div>
         </div>
     </aside>
 
@@ -129,5 +145,8 @@
         firebase.initializeApp(firebaseConfig);
     </script>
     <script src="./src/main/sidebar.js"></script>
+    <script>
+        document.getElementById('default').click();
+    </script>
 </body>
 </html>

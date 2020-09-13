@@ -15,6 +15,7 @@ Play as a pupper to catch and bounce the ball back at blocks. The main gameplay 
 * JavaScript
 * p5.js
 * CSS
+* Firebase
 * GitHub Pages
 
 ## Features and Implementation

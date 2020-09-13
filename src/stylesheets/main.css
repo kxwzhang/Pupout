@@ -170,7 +170,7 @@ body {
     border: none;
 }
 
-.tab-btn:active {
+.tab-btn.active {
     background: lightblue;
     border: none;
 }
@@ -178,4 +178,40 @@ body {
 .tabs-info {
     padding: 10px;
     animation: fadeEffect 1s;
+}
+
+.score-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.highscore-form {
+    padding: 5px;
+    border-bottom: 1px solid burlywood;
+    margin-bottom: 10px;
+}
+
+.input-text {
+    border: 1px solid black;
+    border-radius: 3px;
+    width: 55%;
+    background: lightgray;
+}
+
+.input-text:focus {
+    background: white;
+}
+
+.submit-container {
+    display: flex;
+}
+
+.submit-btn {
+    border: 1px solid black;
+    border-radius: 3px;
+    background: lightgray;
+}
+
+.submit-btn:hover {
+    background: burlywood;
 }
