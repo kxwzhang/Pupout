@@ -11,7 +11,6 @@ function draw() {
   game.show();
 }
 // // p5 keyPressed handling game controls
-
 function keyPressed() {
   if (!options) {
     if (keyCode === CONTROLS.P) {

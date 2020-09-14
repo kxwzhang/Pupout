@@ -34,7 +34,6 @@ class Paddle {
 
   show() {
     // RENDER PADDLE AND CONDITIONALLY RENDER SUPER DOG
-    // if (paddle)
     if (this.beam) {
       image(spriteSuperDog2, this.x, this.y, this.width, PADDLE.height + 17);
     } else {
