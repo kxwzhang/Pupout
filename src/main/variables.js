@@ -43,3 +43,5 @@ let score;
 let lives;
 let level;
 let numFrames;
+let firestore;
+// let name;

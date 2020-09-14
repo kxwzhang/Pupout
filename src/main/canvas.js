@@ -9,7 +9,8 @@ function draw() {
   game.update();
   game.show();
 }
-// p5 keyPressed handling game controls
+// // p5 keyPressed handling game controls
+
 function keyPressed() {
   if (!options) {
     if (keyCode === CONTROLS.P) {
@@ -34,3 +35,4 @@ function keyPressed() {
   }
   return false;
 }
+

@@ -173,6 +173,7 @@ body {
 .tab-btn.active {
     background: lightblue;
     border: none;
+    color: black;
 }
 
 .tabs-info {
@@ -182,23 +183,24 @@ body {
 
 .score-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 .highscore-form {
     padding: 5px;
     border-bottom: 1px solid burlywood;
     margin-bottom: 10px;
+    /* display: none; */
 }
 
-.input-text {
+#input-text {
     border: 1px solid black;
     border-radius: 3px;
     width: 55%;
     background: lightgray;
 }
 
-.input-text:focus {
+#input-text:focus {
     background: white;
 }
 
@@ -214,4 +216,8 @@ body {
 
 .submit-btn:hover {
     background: burlywood;
+}
+
+#start-game {
+    color: green;
 }
