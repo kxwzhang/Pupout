@@ -5,7 +5,7 @@
 Pupout is a breakout-type game that is built with p5.js and pure JavaScript.
 The objective of the game is to break as many blocks as possible and occasionally 
 be awarded with special treats to powerup your pupper. 
-[Image of Pupout UI](https://github.com/kxwzhang/Pupout/blob/master/screenshots/pupout-ui.png)
+![Image of Pupout UI](https://github.com/kxwzhang/Pupout/blob/master/screenshots/pupout-ui.png)
 
 ## Gameplay and Instructions
 Play as a pupper to catch and bounce the ball back at blocks. The main gameplay is to break as many blocks as possible with only 3 balls available per level. There are 5 levels to choose from and each gets progressively harder. Sometimes blocks will generate a treat which will award you with an ability if it is successfully caught. Additionally, some blocks take multiple hits to break and gold color blocks are unbreakable. 
