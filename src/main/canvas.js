@@ -2,6 +2,7 @@
 function setup() {
   createCanvas(GAME_WIDTH, GAME_HEIGHT);
   game = new Game();
+  getScores();
 }
 
 // p5 draw

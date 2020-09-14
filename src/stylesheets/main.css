@@ -184,6 +184,22 @@ body {
 .score-container {
     display: flex;
     justify-content: space-evenly;
+    color: black;
+}
+
+#score-details {
+    /* display: flex; */
+    /* justify-content: space-evenly; */
+    color: red
+}
+
+.score-number label:first-child {
+    color: blue;
+}
+
+#score-details div {
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .highscore-form {

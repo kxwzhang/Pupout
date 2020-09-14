@@ -500,8 +500,9 @@ class Game {
   
   handleGameOver() {
     // document.getElementById("highscore-tab").click();
-    this.displayMessage("WOOF, GAME OVER!", 150);
     new Game();
+    getScores();
+    this.displayMessage("WOOF, GAME OVER!", 150);
     // this.displayMessage("WOOF, GAME OVER!", 150);
     // Invoke click on highscores tab
   }
