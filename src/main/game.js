@@ -50,7 +50,6 @@ class Game {
         treats[i].update();
         if (treats[i].hitPaddle()) {
           treats.splice(i, 1);
-          // console.log(treats);
         }
       }
       // 4. iterate through the beams and update them
@@ -84,7 +83,6 @@ class Game {
     }
     numFrames += 1;
     if (numFrames === 0) {
-      // console.log("numFrames", numFrames);
       stopped = false;
     }
   }
@@ -92,15 +90,12 @@ class Game {
   show() {
     if (!stopped) {
       background("lightblue");
-      // console.log('stopped ', stopped);
       this.drawBoard(); // Draw the board
       this.displayInfo(); // Display game info
       if (!options) {
-        // console.log('options ', options);
         paddle.show(); // render paddle
         // render each of the other elements
         balls.forEach((ball) => ball.show());
-        // debugger
         blocks.forEach((block) => block.show());
         treats.forEach((treat) => treat.show());
         beams.forEach(beam => beam.show());
@@ -124,7 +119,6 @@ class Game {
     }
     let message = "LEVEL " + level + "\nPUPPER UP";
     // display message
-    // debugger
     this.displayMessage(message, 150);
     // Add sounds
   }
@@ -484,7 +478,6 @@ class Game {
   displayMessage(message, time, status) {
     this.drawBoard();
     if (status) {
-      // debugger
       blocks.forEach((block) => block.show());
       paddle.show();
       balls[0].show();

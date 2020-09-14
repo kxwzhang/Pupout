@@ -12,11 +12,9 @@ class Paddle {
   update() {
     if (keyIsDown(CONTROLS.A)) {
       this.x -= 5; // move left 5
-      // console.log('hitting A', this.x);
     }
     if (keyIsDown(CONTROLS.D)) {
       this.x += 5; // move right 5
-      // console.log('hitting D', this.x);
     }
     this.x = constrain(
       this.x,
