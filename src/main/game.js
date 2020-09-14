@@ -18,6 +18,7 @@ class Game {
     level = 1;
     lives = 3;
     numFrames = 0;
+    firestore = firebase.firestore();
   }
 
   update() {
@@ -38,7 +39,8 @@ class Game {
               balls.push(new Ball());
               this.displayMessage("\n\n\nPUPPER READY FOR ACTION", 100, true);
             } else {
-              game.handleGameOver();
+              document.getElementById("highscore-tab").click();
+              this.handleSubmitScore();
             }
           }
         }
@@ -52,7 +54,25 @@ class Game {
         }
       }
       // 4. iterate through the beams and update them
-
+      for (let i = 0; i < beams.length; i++) {
+        beams[i].update();
+        if (beams[i].destroyed()) {
+          beams.splice(i, 1);
+          break;
+        }
+        for (let j = 0; j < blocks.length; j++) {
+          if (beams[i].hitBlock(blocks[j])) {
+            // add sound
+            beams.splice(i, 1);
+            blocks[j].hp -= 1;
+            if (blocks[j].hp === 0) {
+              this.updateScore(blocks[j]);
+              blocks.splice(j, 1);
+            }
+            break;
+          }
+        }
+      }
       // Check if not on the options, then check if all the blocks have been cleared
       // If all blocks cleared then initialize next level
       // Increment the numFrames
@@ -83,7 +103,7 @@ class Game {
         // debugger
         blocks.forEach((block) => block.show());
         treats.forEach((treat) => treat.show());
-        // beams.forEach(beam => beam.show());
+        beams.forEach(beam => beam.show());
       } else if (options) {
         // show the options otherwise
         this.displayMenu();
@@ -116,7 +136,6 @@ class Game {
 
   // Clears the treats
   clearTreats() {
-    // paddle.shrink(); // shrink the paddle
     paddle.stopBeam(); // stop the beam
     balls.forEach((ball) => {
       if (ball.magnet) ball.demagnetize;
@@ -263,33 +282,6 @@ class Game {
         SPACING.right,
         BOARD.height / 2
       );
-      // let treatsType;
-      // switch (treats[treats.length - 1].type) {
-      //   case "EXTRA LIFE":
-      //     treatsType = image(spriteXLife);
-      //     break;
-      //   case "DOUBLE":
-      //     treatsType = image(spriteDouble);
-      //     break;
-      //   case "MAGNET":
-      //     treatsType = image(spriteMagnet);
-      //     break;
-      //   case "BEAM":
-      //     treatsType = image(spriteBeamPot);
-      //     break;
-      //   case "DROP PARTY":
-      //     treatsType = image(spriteDropParty);
-      //     break;
-      //   default:
-      //     break;
-      // }
-      // image(
-      //   treatsType,
-      //   GAME_WIDTH - SPACING.right + SPACING.left - 10,
-      //   SPACING.top + WALL.top + 2 * BLOCK.height + 100,
-      //   SPACING.right,
-      //   BOARD.height / 2
-      // );
     } else {
       stroke(188, 25, 0);
       fill(188, 25, 0);
@@ -301,13 +293,6 @@ class Game {
         BOARD.height / 2
       );
     }
-    // text(
-    //   treats.length > 0 ? treats[0].type : "NONE",
-    //   GAME_WIDTH - SPACING.right + SPACING.left - 10,
-    //   SPACING.top + WALL.top + 2 * BLOCK.height + 80, // 125
-    //   SPACING.right,
-    //   BOARD.height / 2
-    // );
     stroke(255);
     fill(255);
     text(
@@ -332,7 +317,6 @@ class Game {
       stroke(188, 25, 0);
       fill(188, 25, 0);
       textSize(28);
-      // textAlign(LEFT);
       textAlign(CENTER);
       text(
         "PAUSED",
@@ -341,20 +325,11 @@ class Game {
         BOARD.width,
         (BOARD.height / 2)
       );
-      // text(
-      //   "PAUSED",
-      //   GAME_WIDTH - SPACING.right + SPACING.left - 10,
-      //   SPACING.top + WALL.top + 2 * BLOCK.height + 420,
-      //   SPACING.right,
-      //   (BOARD.height / 2)
-      // );
     }
   }
 
   displayMenu() {
     // DISPLAY MENU OPTIONS HERE
-    // stroke(255);
-    // fill(255);
     stroke(255);
     fill(43, 43, 167);
     textSize(35);
@@ -378,11 +353,6 @@ class Game {
     );
 
     textAlign(LEFT);
-    // text(
-    //   "KEYBOARD CONTROLS: ",
-    //   SPACING.left + WALL.left + WALL.left + 11,
-    //   GAME_HEIGHT - 15 * BLOCK.height
-    // );
     text(
       "LAUNCH BALL: W",
       SPACING.left + WALL.left + WALL.left + WALL.left + BLOCK.width - 21,
@@ -505,7 +475,7 @@ class Game {
     text(
       "HIT ENTER TO START THE PUPOUT!",
       SPACING.left + WALL.left,
-      SPACING.top + WALL.top + 2 * BLOCK.height + 200,
+      SPACING.top + WALL.top + 2 * BLOCK.height + 225,
       BOARD.width - WALL.left - WALL.right,
       BOARD.height / 2
     );
@@ -535,8 +505,21 @@ class Game {
     );
   }
 
+  handleSubmitScore() {
+    // let name = document.getElementById('input-text').value;
+    const docRef = firestore.collection('highscores');
+    docRef.add({
+      score: score
+    }).then(() => this.handleGameOver())
+      .catch(() => console.log('failed to save'));
+    // document.getElementById('input-text').value = '';
+  }
+  
   handleGameOver() {
+    // document.getElementById("highscore-tab").click();
     new Game();
-    this.displayMessage("WOOF, GAME OVER!", 150);
+    getScores();
+    this.displayMessage("WOOF, GAME OVER!", 120);
+    // Invoke click on highscores tab
   }
 }

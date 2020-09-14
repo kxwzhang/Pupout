@@ -5,17 +5,16 @@ class Beam {
   }
 
   update() {
-    this.y -= 1;
+    this.y -= 6;
   }
 
   show() {
-    image(spriteBlueBeam, this.x. this.y, 5, 10);
+    // console.log('this.y', this.y);
+    image(spriteBlueBeam, this.x, this.y, 15, 20);
   }
 
   hitBlock(block) {
-    if (this.y < block.y + block.height && 
-        this.x < block.x + block.width && 
-        this.x > block.x - 5) {
+    if (this.y < block.y + BLOCK.height && this.x < block.x + BLOCK.width && this.x + 5 > block.x) {
       return true;
     }
     return false;

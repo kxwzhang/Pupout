@@ -2,6 +2,7 @@
 function setup() {
   createCanvas(GAME_WIDTH, GAME_HEIGHT);
   game = new Game();
+  getScores();
 }
 
 // p5 draw
@@ -9,7 +10,7 @@ function draw() {
   game.update();
   game.show();
 }
-// p5 keyPressed handling game controls
+// // p5 keyPressed handling game controls
 function keyPressed() {
   if (!options) {
     if (keyCode === CONTROLS.P) {
@@ -34,3 +35,4 @@ function keyPressed() {
   }
   return false;
 }
+

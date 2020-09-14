@@ -1,8 +1,6 @@
 @media screen and (max-width: 900px) {
   #info-container {
     display: none;
-    /* float: none;
-    width: 100%; */
   }
 }
 
@@ -13,12 +11,9 @@ html {
 }
 
 main {
-    /* background-color: rgb(54, 48, 48); */
     display: flex;
     padding: 30px;
-    /* margin: auto; */
-    /* width: 100%; */
-    /* height: 100%; */
+  
 }
 
 body {
@@ -36,7 +31,6 @@ body {
 #info-container {
     margin-top: 30px;
     margin-left: 30px;
-    padding: 30px;
     box-sizing: border-box;
     border: 3px solid burlywood;
     border-radius: 3px;
@@ -58,12 +52,13 @@ body {
 
 #mute-music {
     outline: none;
-    color: gray;
+    color: green;
     padding: 5px;
 }
 
-.muted {
+.muted .fa-music {
     text-decoration: line-through;
+    color: red;
 }
 
 #mute-music:hover {
@@ -107,6 +102,7 @@ body {
     cursor: pointer;
 }
 
+/* Attribution dropdown */
 .dropdown {
     padding-top: 20px;
     position: relative;
@@ -143,4 +139,94 @@ body {
 
 .dropdown:hover .dropbtn {
     color: white;
+}
+
+/* Highscores and Pupout tabs */
+.tab-links {
+    display: flex;
+    overflow: hidden;
+}
+
+.tab-btn {
+    background: rgb(29, 27, 27);
+    color: white;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 20px;
+    width: 100%;
+    transition: 0.5s;
+}
+
+.tab-btn:hover {
+    padding: 14px 20px;
+    background: lightblue;
+    border: none;
+}
+
+.tab-btn.active {
+    padding: 14px 20px;
+    background: lightblue;
+    border: none;
+    color: black;
+}
+
+.tabs-info {
+    padding: 10px;
+}
+
+.score-container {
+    display: flex;
+    justify-content: space-evenly;
+    color: black;
+}
+
+#score-details {
+    color: red
+}
+
+.score-number label:first-child {
+    color: blue;
+}
+
+#score-details div {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.highscore-form {
+    padding: 5px;
+    border-bottom: 1px solid burlywood;
+    margin-bottom: 10px;
+    /* display: none; */
+}
+
+#input-text {
+    border: 1px solid black;
+    border-radius: 3px;
+    width: 55%;
+    background: lightgray;
+}
+
+#input-text:focus {
+    background: white;
+}
+
+.submit-container {
+    display: flex;
+}
+
+.submit-btn {
+    border: 1px solid black;
+    border-radius: 3px;
+    background: lightgray;
+}
+
+.submit-btn:hover {
+    background: burlywood;
+}
+
+#start-game {
+    color: green;
 }

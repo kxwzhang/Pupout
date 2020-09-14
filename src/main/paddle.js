@@ -34,20 +34,29 @@ class Paddle {
 
   show() {
     // RENDER PADDLE AND CONDITIONALLY RENDER SUPER DOG
-    // if (paddle)
-    image(spriteSuperDog, this.x, this.y, this.width, PADDLE.height + 17);
-    // image(
-    //     spriteFlatDog,
-    //     this.x,
-    //     this.y,
-    //     this.width,
-    //     PADDLE.height);
+    if (this.beam) {
+      image(spriteSuperDog2, this.x, this.y, this.width, PADDLE.height + 17);
+    } else {
+      image(spriteSuperDog, this.x, this.y, this.width, PADDLE.height + 17);
+    }
   }
 
   // ADD BEAM FUNCTION
-  startBeam() {}
+  startBeam() {
+    this.beam = true;
+  }
 
   // REMOVE BEAM FUNCTION
-  stopBeam() {}
+  stopBeam() {
+    this.beam = false;
+  }
   // ADD ABILITY TO FIRE BEAM ON BUTTON PRESS
+  fire() {
+    if (this.beam && !this.onCD) {
+      this.frame = numFrames;
+      // fire sounds
+      beams.push(new Beam(this.x + PADDLE.width / 3, this.y));
+      this.onCD = true;
+    }
+  }
 }
