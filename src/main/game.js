@@ -55,7 +55,25 @@ class Game {
         }
       }
       // 4. iterate through the beams and update them
-
+      for (let i = 0; i < beams.length; i++) {
+        beams[i].update();
+        if (beams[i].destroyed()) {
+          beams.splice(i, 1);
+          break;
+        }
+        for (let j = 0; j < blocks.length; j++) {
+          if (beams[i].hitBlock(blocks[j])) {
+            // add sound
+            beams.splice(i, 1);
+            blocks[j].hp -= 1;
+            if (blocks[j].hp === 0) {
+              this.updateScore(blocks[j]);
+              blocks.splice(j, 1);
+            }
+            break;
+          }
+        }
+      }
       // Check if not on the options, then check if all the blocks have been cleared
       // If all blocks cleared then initialize next level
       // Increment the numFrames
@@ -86,7 +104,7 @@ class Game {
         // debugger
         blocks.forEach((block) => block.show());
         treats.forEach((treat) => treat.show());
-        // beams.forEach(beam => beam.show());
+        beams.forEach(beam => beam.show());
       } else if (options) {
         // show the options otherwise
         this.displayMenu();
