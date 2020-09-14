@@ -73,7 +73,6 @@ class Treats {
         default:
           break;
       }
-      // debugger
       return true;
     }
     return false;

@@ -9,7 +9,6 @@ class Beam {
   }
 
   show() {
-    // console.log('this.y', this.y);
     image(spriteBlueBeam, this.x, this.y, 15, 20);
   }
 

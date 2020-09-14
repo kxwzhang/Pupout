@@ -12,11 +12,9 @@ class Paddle {
   update() {
     if (keyIsDown(CONTROLS.A)) {
       this.x -= 5; // move left 5
-      // console.log('hitting A', this.x);
     }
     if (keyIsDown(CONTROLS.D)) {
       this.x += 5; // move right 5
-      // console.log('hitting D', this.x);
     }
     this.x = constrain(
       this.x,
@@ -55,7 +53,8 @@ class Paddle {
     if (this.beam && !this.onCD) {
       this.frame = numFrames;
       // fire sounds
-      beams.push(new Beam(this.x + PADDLE.width / 3, this.y));
+      let reload = new Beam(this.x + (PADDLE.width + 1)  / 3, this.y);
+      beams.push(reload);
       this.onCD = true;
     }
   }
