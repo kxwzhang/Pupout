@@ -53,7 +53,8 @@ class Paddle {
     if (this.beam && !this.onCD) {
       this.frame = numFrames;
       // fire sounds
-      beams.push(new Beam(this.x + PADDLE.width / 3, this.y));
+      let reload = new Beam(this.x + (PADDLE.width + 1)  / 3, this.y);
+      beams.push(reload);
       this.onCD = true;
     }
   }
