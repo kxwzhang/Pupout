@@ -41,7 +41,6 @@ class Game {
             } else {
               document.getElementById("highscore-tab").click();
               this.handleSubmitScore();
-              // this.handleGameOver();
             }
           }
         }
@@ -520,8 +519,7 @@ class Game {
     // document.getElementById("highscore-tab").click();
     new Game();
     getScores();
-    this.displayMessage("WOOF, GAME OVER!", 150);
-    // this.displayMessage("WOOF, GAME OVER!", 150);
+    this.displayMessage("WOOF, GAME OVER!", 120);
     // Invoke click on highscores tab
   }
 }

@@ -10,10 +10,10 @@ class Beam {
 
   show() {
     // console.log('this.y', this.y);
-    image(spriteBlueBeam, this.x, this.y, 7, 12);
+    image(spriteBlueBeam, this.x, this.y, 15, 20);
   }
 
-  hitBlock(block) {a
+  hitBlock(block) {
     if (this.y < block.y + BLOCK.height && this.x < block.x + BLOCK.width && this.x + 5 > block.x) {
       return true;
     }

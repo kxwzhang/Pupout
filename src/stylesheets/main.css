@@ -58,12 +58,13 @@ body {
 
 #mute-music {
     outline: none;
-    color: gray;
+    color: green;
     padding: 5px;
 }
 
-.muted {
+.muted .fa-music {
     text-decoration: line-through;
+    color: red;
 }
 
 #mute-music:hover {
@@ -162,15 +163,16 @@ body {
     padding: 14px 20px;
     width: 100%;
     transition: 0.5s;
-    border-bottom: 3px solid burlywood;
 }
 
 .tab-btn:hover {
-    background: transparent;
+    padding: 14px 20px;
+    background: lightblue;
     border: none;
 }
 
 .tab-btn.active {
+    padding: 14px 20px;
     background: lightblue;
     border: none;
     color: black;
@@ -178,7 +180,6 @@ body {
 
 .tabs-info {
     padding: 10px;
-    animation: fadeEffect 1s;
 }
 
 .score-container {
