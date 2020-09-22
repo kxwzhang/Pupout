@@ -22,7 +22,7 @@ function getScores() {
     querySnapshot.forEach(doc => {
       scoreArr.push(parseFloat(doc.get('score')));
     });
-    scoreArr.sort().reverse();
+    scoreArr.sort((a, b) => (a - b)).reverse();
     scoreArr.forEach((scr, idx) => {
       let div = document.createElement('div');
       div.setAttribute('class', 'score-number');
