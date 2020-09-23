@@ -87,9 +87,14 @@ body {
     color: gray;
 }
 
-.objective {
+.objective, .controls {
     font-size: 20px;
     color: rgb(43, 43, 167);
+}
+
+.controls-list li {
+    text-align: center;
+    color: green;
 }
 
 .dropbtn {
