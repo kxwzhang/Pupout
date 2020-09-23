@@ -59,9 +59,10 @@ body {
 .muted .fa-music {
     text-decoration: line-through;
     color: red;
+    /* font-size: 30px; */
 }
 
-#mute-music:hover {
+.fa-music:hover {
     color: white;
 }
 
@@ -87,9 +88,22 @@ body {
     color: gray;
 }
 
-.objective, .controls {
+.fa-chevron-down {
+    font-size: 12px;
+}
+
+.objective, #hide-controls {
     font-size: 20px;
     color: rgb(43, 43, 167);
+}
+
+#hide-controls:hover {
+    color: gray;
+    cursor: pointer;
+}
+
+.hidden + .controls-list li{
+    display: none;
 }
 
 .controls-list li {

@@ -39,6 +39,16 @@
             }
         }
     </script>
+    <script>
+        function hide() {
+            const hideControls = document.getElementById('hide-controls');
+            if (hideControls.className === 'hidden') {
+                hideControls.classList.remove('hidden');
+            } else {
+                hideControls.classList.add('hidden');
+            }
+        }
+    </script>
 </head>
 <body>
     <aside id='info-container'>
@@ -55,9 +65,6 @@
             </button>
             <span>
                 <p class='info-text'>
-                    Do you have what it takes to become to ultimate street pupper?
-                </p>
-                <p class='info-text'>
                     Play as a pupper through 5 different levels,
                     break down walls,
                     and eat some treats along the way
@@ -73,8 +80,8 @@
                     Each level gets progressively harder, so proceed with caution!
                 </p>
                 <br>
-                <p class='controls'>
-                    Controls:
+                <p id='hide-controls' class='hidden' onclick="hide()">
+                    Controls <i class="fas fa-chevron-down"></i>
                 </p>
                 <ul class='controls-list'>
                     <li>Launch Ball: W</li>
@@ -86,7 +93,7 @@
                 </ul>
                 <br>
             </span>
-            <div>
+            <div className='nav-links-container'>
                 <nav class='nav-links'>
                     <a href="https://www.linkedin.com/in/kevinxzhang/" target="_blank">
                         <i class="fab fa-linkedin-in"></i>
